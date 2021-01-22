@@ -10,5 +10,5 @@ Good wordlists
     * Seclists
          * /Discovery/dns/*
          
-* [Sharepoint](/Methodologies/Sharepoint/)
+* [Sharepoint](../Methodologies/Sharepoint.html)
 

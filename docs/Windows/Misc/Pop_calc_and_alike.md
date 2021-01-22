@@ -11,7 +11,7 @@ tcpdump -vvv -A -i <INTERFACE> src <TARGET_IP> and icmp
 
 ## Powershell execution and connection
 
-* [Reference](/Windows/Misc/Base64_encode_powershell_commands/)
+* [Reference](./Base64_encode_powershell_commands.html)
 
 ```bash
 # Payload

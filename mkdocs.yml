@@ -77,8 +77,8 @@ site_name: Cheatsheet
 site_description: Cheatsheet hosted on mkdocs
 site_author: Trojand
 site_url: https://trojand.com/cheatsheet
-repo_url: https://github.com/trojand/trojand.github.io
-repo_name: trojand/trojand.github.io
+repo_url: https://github.com/trojand/cheatsheet
+repo_name: trojand/cheatsheet
 
 # Themes, features, plugins, extra
 theme:
@@ -108,10 +108,10 @@ theme:
 plugins:
   - search:
       min_search_length: 2
-  # - git-revision-date:
-  #     enabled_if_env: CI
-  # - git-revision-date-localized:
-  #     fallback_to_build_date: true
+  - git-revision-date:
+      enabled_if_env: CI
+  - git-revision-date-localized:
+      fallback_to_build_date: true
 markdown_extensions:
    - toc:
        permalink: " #"
@@ -128,9 +128,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/trojand/
 
-# google_analytics:
-#   - UA-XXXXXXXX-X
-#   - auto
+google_analytics:
+  - UA-141312685-1
+  - auto
 # extra_css:
 # extra_javascript:
 

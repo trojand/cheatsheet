@@ -9,7 +9,7 @@
     ```
 
 1. Retrieve the files
-    * See [Data Exfiltration](/#data-exfiltration)
+    * See [Data Exfiltration](../../#data-exfiltration)
 
 1. On local machine (~Kali)
     ```bash

@@ -47,7 +47,7 @@ ___
 ```
 ___ 
 
-## [Dumping credentials](/#dumping-credentials)
+## [Dumping credentials](../../#dumping-credentials)
 ___
 ## Bloodhound (Sharphound) 
 
