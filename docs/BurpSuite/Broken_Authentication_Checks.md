@@ -13,7 +13,7 @@
     * Browse to all pages
     * Try all functions
         * Change password
-        * Add/Edit/Delete
+        * Add / Edit / Delete
             * accounts
             * data/entries
 1. In **Target** -> **Sitemap, on the specific URL/host** -> "**Copy URLs in this host**"
