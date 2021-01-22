@@ -16,7 +16,7 @@
         * add/edit/delete
             * accounts
             * data/entries
-1. In Target -> Sitemap, on the specific URL/host -> "Copy URLs in this host"
+1. In **Target** -> **Sitemap, on the specific URL/host** -> "**Copy URLs in this host**"
 1. In a text editor/grep, remove the base URL (i.e. https://domain.com/some/function/page.aspx -> /some/function/page.aspx)
 1. Logout from the web application (Destory the session/Expire)
 1. On Burp's Intruder, Mode: Sniper
