@@ -1,0 +1,158 @@
+nav:
+    - OSINT: 
+      - 'Backlinks Checker': 'OSINT/Backlink_Check.md'
+    - Network:
+        - 'Reconnaissance':
+            - 'Ping Sweep Host Discovery using Windows CLI': 'Network/Reconnaissance/PingSweep-Windows-CLI.md'
+            - 'SMB Enumeration': 'Network/Reconnaissance/SMB_Enum.md'
+        - 'Connections':
+            - 'Plink with RDP': 'Network/Connections/Plink-RDP.md'
+            - 'SSH Tunneling + SSHuttle and Chisel': 'Network/Connections/SSH_Tunneling.md'
+        - 'ARP Poisoning':
+            - 'Bettercap': 'Network/ARP_Poisoning/Bettercap.md'
+        - 'Sniffing':
+            - 'Passive Mode in Kali': 'Network/Sniffing/PassiveMode-Kali.md'
+        - 'Data Exfiltration':
+            - 'Windows - Archiving and Compression': 'Network/Data_Exfiltration/Windows-Archiving_and_Compression.md'
+            - 'Windows-Linux - Curl & SimpleHTTPServerwithUpload': 'Network/Data_Exfiltration/Windows-Linux-Curl-SimpleHTTPServerwithUpload.md'
+            - 'Windows-to-Linux - Powershell to Samba': 'Network/Data_Exfiltration/Powershell-SAMBA.md'
+    - Infrastructure Setup:
+      - 'Nginx Reverse Proxy to Dradis & Eyewitness': 'Infrastructure_Setup/NginxReverseProxy_Dradis-Eyewitness.md'
+      - 'Python Webservers': 'Infrastructure_Setup/Python_Webservers.md'
+      - 'Git Commands': 'Infrastructure_Setup/Git_Commands.md'
+      - 'Non-Privileged Port Binding': 'Infrastructure_Setup/Non-Privileged_Port_Binding.md'
+      - 'Systemctl with Normal User Privileges': 'Infrastructure_Setup/Systemctl_with_user_privileges.md'
+      - 'Connection Check': 'Infrastructure_Setup/Connection_Check.md'
+      - 'OpenVPN auto-connect at Startup': 'Infrastructure_Setup/OpenVPN_AutoConnect.md'
+      - 'Process and network connetion monitoring': 'Infrastructure_Setup/Process_and_network_connection_monitoring.md'
+      - 'SSH Config Template': 'Infrastructure_Setup/SSH_Config_Template.md'
+    - Linux:
+      - 'Download and install apt, pip3 packages and dependencies offline': 'Linux/Downloading_apt_pip3_packages_offline.md'
+    - Burp Suite:
+      - 'Persistent Automated Collaborator': 'BurpSuite/Persistent_Automated_Collaborator.md'
+      - 'Broken Authentication Checks': 'BurpSuite/Broken_Authentication_Checks.md'
+    - Windows:
+      - 'Dumping_Credentials':
+        - 'Windows':
+          - 'Secretsdump.py': 'Windows/Dumping_Credentials/Impacket-secretsdump.md'
+          - 'Procdump & Mimikatz': 'Windows/Dumping_Credentials/Procdump-Mimikatz.md'
+      - 'Initial_Foothold':
+        - 'Regular Windows Domain Account': 'Windows/Initial_Foothold/After-Achieving-a-Regular-Windows-Domain_account.md'
+      - 'Misc':
+        - 'Domain User Tracking': 'Windows/Misc/DomainUser_Tracking.md'
+        - 'Encoding powershell commands to Base64': 'Windows/Misc/Base64_encode_powershell_commands.md'
+        - 'Pop calc and alike': 'Windows/Misc/Pop_calc_and_alike.md'
+      - 'Shells': 'Windows/Shells.md'
+    - Password Cracking:
+      - 'Hashcat Cheatsheet': 'Password_Cracking/Hashcat_cheatsheet.md'
+    - OSCP:
+      - General OSCP Cheatsheet: 'OSCP/General_Cheatsheet.md'
+      - Buffer_Overflow:
+          - 'General Methodology': 'OSCP/Buffer_Overflow/General_methodology.md'
+          - 'Egghunting - Basic': 'OSCP/Buffer_Overflow/Egghunting-Basic.md'
+          - 'Skeleton Script': 'OSCP/Buffer_Overflow/Skeleton.md'
+          - Fuzzing_Scripts:
+            - 'Simple Fuzz': 'OSCP/Buffer_Overflow/Fuzzing_Scripts/Simple_Fuzz.md'
+            - 'Vuln Fuzzer': 'OSCP/Buffer_Overflow/Fuzzing_Scripts/vuln_fuzzer.md'
+          - Completed_Scripts:
+            - 'Brainpan': 'OSCP/Buffer_Overflow/Completed_Scripts/brainpan.md'
+
+      - Custom_Scripts:
+        - 'Autorecon Mods': 'OSCP/Custom_Scripts/Autorecon_modification.md'
+    - Useful commands:
+      - 'Linux': 'Useful_Commands/Linux.md'
+      - 'Windows': 'Useful_Commands/Windows.md'
+      - 'Code Review': 'Useful_Commands/Code_Review.md'
+      - 'Mobile Application Security Testing': 'Useful_Commands/Mobile_App_Security_Testing.md'
+      - 'Python Tips': 'Useful_Commands/Python_Tips.md'
+    - Methodologies:
+      - 'Pentesting Sharepoint': 'Methodologies/Sharepoint.md'
+    - Wordlists:
+      - 'Wordlist Sources': 'Wordlist/Wordlist_Sources.md'
+
+
+
+# General site settings
+site_name: Cheatsheet
+site_description: Cheatsheet hosted on mkdocs
+site_author: Trojand
+site_url: https://trojand.com/cheatsheet
+repo_url: https://github.com/trojand/trojand.github.io
+repo_name: trojand/trojand.github.io
+
+# Themes, features, plugins, extra
+theme:
+    name: 'material'  
+    features:
+      - navigation.instant
+      #- header.autohide
+      - search.suggest
+      - search.highlight
+    palette:
+      primary: black
+      #accent: red
+      scheme: preference
+    logo: images/horse.png
+    favicon: images/favicon.ico
+    # highlightjs: true
+    # hljs_languages:
+    #     - python
+    #     - bash
+    #     - javascript
+    #     - json
+    #     - nginx
+    #     - http
+    #     - dos
+    language: en
+    include_sidebar: true
+plugins:
+  - search:
+      min_search_length: 2
+  # - git-revision-date:
+  #     enabled_if_env: CI
+  # - git-revision-date-localized:
+  #     fallback_to_build_date: true
+markdown_extensions:
+   - toc:
+       permalink: " #"
+       baselevel: 1
+   - footnotes
+   - pymdownx.highlight:
+      linenums: true
+   - pymdownx.inlinehilite
+   - pymdownx.superfences
+   - pymdownx.keys
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/trojand/
+
+# google_analytics:
+#   - UA-XXXXXXXX-X
+#   - auto
+# extra_css:
+# extra_javascript:
+
+  # version:
+  #   method: mike
+
+
+# # https://squidfunk.github.io/mkdocs-material/extensions/admonition/
+# # https://facelessuser.github.io/pymdown-extensions/
+# markdown_extensions:
+#   - attr_list
+#   - admonition
+#   - footnotes
+#   - pymdownx.details
+#   - pymdownx.inlinehilite
+#   - pymdownx.highlight:
+#       use_pygments: false
+#   - pymdownx.smartsymbols
+#   - pymdownx.superfences
+#   - pymdownx.tasklist
+#   - pymdownx.snippets:
+#       check_paths: true
+#   - toc:
+#       permalink: true
+
