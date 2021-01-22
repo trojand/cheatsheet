@@ -2,7 +2,7 @@
 
 ## Requirements:
 
-* Account/Authentication on the web application[^1]
+* Account / Authentication on the web application[^1]
 
 
 ## Instructions
@@ -13,7 +13,7 @@
     * Browse to all pages
     * Try all functions
         * Change password
-        * add/edit/delete
+        * Add/Edit/Delete
             * accounts
             * data/entries
 1. In **Target** -> **Sitemap, on the specific URL/host** -> "**Copy URLs in this host**"
