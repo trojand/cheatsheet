@@ -26,7 +26,7 @@
              * `GET /some/function/page.aspx HTTP/1.1`
              * `POST /some/function/changepassword HTTP/1.1`
 1. Monitor for the response code and size
-1. For links/function with potential
+1. For links / function with potential
     1. Retrieve the correct data(parameters etc.) and try again
     
     
