@@ -62,6 +62,13 @@ aaaaaaa.rar
 
 #Just add '-v' after 'grep' to "select non-matching lines" / inverse
 ```
+
+## RDP
+* Connecting to a Windows host via RDP
+```
+ xfreerdp +nego +sec-rdp +sec-tls +sec-nla /v:<hostname/IP>  /d: /u:<username> /p:<password> /size:90%
+```
+
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
 [^2]: [StackOverflow](https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed)
 [^3]: [It's FOSS](https://itsfoss.com/recover-deleted-files-linux/)
