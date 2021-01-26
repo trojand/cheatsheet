@@ -9,9 +9,9 @@
 
 ## Python3 HTTPS Server
 ```bash
-openssl req -nodes -x509 -days 7 -newkey rsa:4096 -key ~/twisted.key -out ~/twisted.crt
-python3 -m twisted web --https=8888 -c ~/twisted.crt -k ~/twisted.key --path .
-openssl x509 -fingerprint -sha256  -in ~/twisted.crt
+openssl req -nodes -x509 -days 7 -newkey rsa:4096 -keyout ./twisted.key -out ./twisted.crt
+python3 -m twisted web --https=8888 -c ./twisted.crt -k ./twisted.key --path .
+openssl x509 -fingerprint -sha256  -in ./twisted.crt
 ```
 
 
