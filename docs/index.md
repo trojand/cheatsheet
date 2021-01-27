@@ -36,9 +36,11 @@
 
 ## Linux
 * [Download and install apt, pip3 packages and dependencies offline](Linux/Downloading_apt_pip3_packages_offline.md)
-## Burp Suite
-* [Persistent Automated Collaborator](BurpSuite/Persistent_Automated_Collaborator.md)
-* [Broken Authentication Checks](BurpSuite/Broken_Authentication_Checks.md)
+
+## Web
+* ### Burp Suite
+    * [Persistent Automated Collaborator](Web/BurpSuite/Persistent_Automated_Collaborator.md)
+    * [Broken Authentication Checks](Web/BurpSuite/Broken_Authentication_Checks.md)
 
 ## Windows
 * ### Initial Foothold
