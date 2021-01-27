@@ -32,6 +32,7 @@
 * [OpenVPN auto-connect at Startup](Infrastructure_Setup/OpenVPN_AutoConnect.md)
 * [Process and network connetion monitoring](Infrastructure_Setup/Process_and_network_connection_monitoring.md)
 * [SSH Config Template](Infrastructure_Setup/SSH_Config_Template.md)
+* [Create a swapfile](Infrastructure_Setup/Create_Swapfile.md)
 
 ## Linux
 * [Download and install apt, pip3 packages and dependencies offline](Linux/Downloading_apt_pip3_packages_offline.md)
