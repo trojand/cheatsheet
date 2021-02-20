@@ -1,6 +1,8 @@
 # Code review commands
 
-Just use a good IDE and you'll be fine. Else, see below:
+* Used for manual code review
+* A good IDE could also help in tracing once specific lines are found
+    * A simple example of editors that could do this is Sublime Text and Notepad++ which can search through folders and use regex
 
 ## Grep Fu section
 ```bash
@@ -9,3 +11,12 @@ for i in $(grep -R <$PATTERN1>|cut -d : -f 1|sort -u); do echo "\n==========$i==
 for i in $(grep -R <$PATTERN1>|cut -d : -f 1|sort -u); do echo "\n==========$i==========\n" && gedit $i;done
 ```
 
+## Regex Section
+
+### Targeted/Group Matching
+```bash
+perl -lne 'print $1 if /<R(E)GEX>/' < * 
+perl -lne 'print "$1/$2" if /<R(E)GE(X)>/' < * 
+perl -lne 'print "$1/$2" if /src=\"(.*?)\/(.*?)\//' blob.txt
+for i in $(find .); do perl -lne 'print "$1/$2" if /src=\"(.*?)\/(.*?)\//' 2>/dev/null < $i;done|sort -u
+```
