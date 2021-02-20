@@ -66,7 +66,7 @@ nav:
     - Useful commands:
       - 'Linux': 'Useful_Commands/Linux.md'
       - 'Windows': 'Useful_Commands/Windows.md'
-      - 'Code Review': 'Useful_Commands/Code_Review.md'
+      - 'Code Review & Regex': 'Useful_Commands/Code_Review_Regex.md'
       - 'Mobile Application Security Testing': 'Useful_Commands/Mobile_App_Security_Testing.md'
       - 'Python Tips': 'Useful_Commands/Python_Tips.md'
     - Methodologies:
