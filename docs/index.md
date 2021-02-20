@@ -41,6 +41,7 @@
 * ### Burp Suite
     * [Persistent Automated Collaborator](Web/BurpSuite/Persistent_Automated_Collaborator.md)
     * [Broken Authentication Checks](Web/BurpSuite/Broken_Authentication_Checks.md)
+    * [Chromium Proxy Setup](Web/BurpSuite/Chromium_Proxy_Setup.md)
 
 ## Windows
 * ### Initial Foothold
