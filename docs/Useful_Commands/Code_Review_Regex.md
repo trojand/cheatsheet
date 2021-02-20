@@ -1,8 +1,9 @@
-# Code review commands
+# Code review & Regular Expression commands
 
 * Used for manual code review
 * A good IDE could also help in tracing once specific lines are found
     * A simple example of editors that could do this is Sublime Text and Notepad++ which can search through folders and use regex
+* For more Regex references, see my [TEMPALTE.py](https://github.com/trojand/Script_Yard/blob/main/TEMPLATE.py)
 
 ## Grep Fu section
 ```bash
