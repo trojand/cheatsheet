@@ -104,6 +104,13 @@ sudo iptables -A INPUT -p tcp -s 192.168.1.0/24 --dport 22 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 22 -j DROP
 ```
 
+## Mirror a website
+```
+wget --mirror --convert-links --adjust-extension --page-requisites --wait=1 -o wget-mirror.log --no-parent https://example.org
+```
+
+
+
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
 [^2]: [StackOverflow](https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed)
 [^3]: [It's FOSS](https://itsfoss.com/recover-deleted-files-linux/)
