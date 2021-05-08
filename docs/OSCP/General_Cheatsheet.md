@@ -1,6 +1,6 @@
 # OSCP Cheatsheet
 
-This was the cheatsheet and methodologies that were generated when I took my OSCP.
+This was the cheatsheet and containing the methodologies that were compiled when I took my OSCP.
 
 I just left this as is and made a bigger cheatsheet on top of this, which is this site.
 
@@ -238,7 +238,7 @@ nikto -h $url -C all -oX
 ## Initial Shell Checks
 * Windows: 
     ```batch
-    hostname & whoami /all & ipconfig & systeminfo & net user & net localgroup & net user /domain&tasklist /V
+    hostname & whoami /all & ipconfig & systeminfo & net user & net localgroup & net user /domain & tasklist /V
     ```
 * Linux:
     ```bash
