@@ -1,7 +1,10 @@
 # My Practical Hashcat Ruleset
 
 1. Download maskprocessor from [here](https://github.com/hashcat/maskprocessor/releases/)
-1. Rules (Just paste this whole (or portions only) section to your cmd.exe terminal. It gets weird in powershell due to the '$' character. No need to remove the tabs and comments/descriptions)
+1. Rules
+    * Just paste this whole (or portions only) section to your cmd.exe terminal.
+    * Why cmd.exe? It gets weird in powershell due to the '$' character.
+    * Pasting the whole portion, there is no need to remove the tabs and comments/descriptions as it will be ignored
 
       ```
       # Realistic years only (For smaller rules)
