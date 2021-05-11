@@ -95,5 +95,6 @@
 * [Wordlist Sources](Wordlist/Wordlist_Sources.md)
 
 ## Woah I'm Blue!
+* [Ransomware](Woah_Im_Blue/Ransomware.md)
 * ### Deception
     * [List of Easy Deception Tech](Woah_Im_Blue/Deception/Easy_Deception_List.md)
