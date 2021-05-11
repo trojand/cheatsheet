@@ -62,6 +62,7 @@
 
 ## Password Cracking
 * [Hashcat Cheatsheet](Password_Cracking/Hashcat_general_cheatsheet.md)
+* [Hashcat Practical Ruleset](Password_Cracking/Hashcat_Practical_Ruleset.md)
     
 ## OSCP
 * [General OSCP Cheatsheet](OSCP/General_Cheatsheet.md)
