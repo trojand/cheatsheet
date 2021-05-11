@@ -61,7 +61,7 @@
 * [Shells](Windows/Shells.md)
 
 ## Password Cracking
-* [Hashcat Cheatsheet](Password_Cracking/Hashcat_cheatsheet.md)
+* [Hashcat Cheatsheet](Password_Cracking/Hashcat_general_cheatsheet.md)
     
 ## OSCP
 * [General OSCP Cheatsheet](OSCP/General_Cheatsheet.md)
