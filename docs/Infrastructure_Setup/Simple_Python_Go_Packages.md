@@ -57,4 +57,4 @@ sudo python3 -m smtpd -n -c DebuggingServer 0.0.0.0:25
 sudo python3 -m smtpd -n -c DebuggingServer 0.0.0.0:587
 ```
 
-[^1]: [Upload files via Curl](/Useful_Commands/Linux.html)
+[^1]: [Upload files via Curl](../Useful_Commands/Linux.html#upload-files-via-curl)
