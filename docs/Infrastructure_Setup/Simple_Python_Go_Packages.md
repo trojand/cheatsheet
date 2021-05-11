@@ -9,8 +9,8 @@
 
 ### Go
 
-#### ProjectDiscovery - Simplehttpserver[^1]
-* Installation
+#### ProjectDiscovery - Simplehttpserver
+* Installation[^1]
     ```bash
     sudo apt install golang-go -y
     GO111MODULE=on go get -v github.com/projectdiscovery/simplehttpserver/cmd/simplehttpserver
@@ -26,8 +26,8 @@
     ```
     * Run alias with `go_simplehttpserver`
 * Upload a file via curl
-    * Windows
-    * Linux: Via curl[^1]
+    * Windows - via powershell
+    * Linux - via curl[^2]
 
 
 
@@ -57,4 +57,5 @@ sudo python3 -m smtpd -n -c DebuggingServer 0.0.0.0:25
 sudo python3 -m smtpd -n -c DebuggingServer 0.0.0.0:587
 ```
 
-[^1]: [Upload files via Curl](../Useful_Commands/Linux.html#upload-files-via-curl)
+[^1]: [ProjectDiscovery - SimpleHTTPServer](https://github.com/projectdiscovery/simplehttpserver)
+[^2]: [Upload files via Curl](../Useful_Commands/Linux.html#upload-files-via-curl)
