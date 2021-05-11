@@ -27,7 +27,7 @@
     * Run alias with `go_simplehttpserver`
 * Upload a file via curl
     * Windows - via powershell
-    * Linux - via curl[^2]
+    * Linux - via [curl](../Useful_Commands/Linux.html#upload-files-via-curl)
 
 
 
@@ -58,4 +58,3 @@ sudo python3 -m smtpd -n -c DebuggingServer 0.0.0.0:587
 ```
 
 [^1]: [ProjectDiscovery - SimpleHTTPServer](https://github.com/projectdiscovery/simplehttpserver)
-[^2]: [Upload files via Curl](../Useful_Commands/Linux.html#upload-files-via-curl)
