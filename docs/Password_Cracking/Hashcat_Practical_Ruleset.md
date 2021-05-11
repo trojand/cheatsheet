@@ -194,4 +194,6 @@
 		* The "# Realistic years only (For smaller rules)" section is quick to generate, load and gives the most results.
 
 1. Example commands after build the wordlist:
-    * `.\hashcat.exe -a 0 -m 1000 --force -O .\dumped_hashes.txt .\uber_targeted_custom_wordlist.dict -r .\trojand.rule`
+	```
+	`.\hashcat.exe -a 0 -m 1000 --force -O .\dumped_hashes.txt .\uber_targeted_custom_wordlist.dict -r .\trojand.rule`
+	```
