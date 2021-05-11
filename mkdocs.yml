@@ -19,7 +19,7 @@ nav:
             - 'Windows-to-Linux - Powershell to Samba': 'Network/Data_Exfiltration/Powershell-SAMBA.md'
     - Infrastructure Setup:
       - 'Nginx Reverse Proxy to Dradis & Eyewitness': 'Infrastructure_Setup/NginxReverseProxy_Dradis-Eyewitness.md'
-      - 'Python Webservers': 'Infrastructure_Setup/Python_Webservers.md'
+      - 'Simple Python & Go Packages': 'Infrastructure_Setup/Simple_Python_Go_Packages.md'
       - 'Git Commands': 'Infrastructure_Setup/Git_Commands.md'
       - 'Non-Privileged Port Binding': 'Infrastructure_Setup/Non-Privileged_Port_Binding.md'
       - 'Systemctl with Normal User Privileges': 'Infrastructure_Setup/Systemctl_with_user_privileges.md'
