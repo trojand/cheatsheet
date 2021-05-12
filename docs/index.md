@@ -18,8 +18,10 @@
     * [Passive Mode in Kali](Network/Sniffing/PassiveMode-Kali.md)
 * ### Data Exfiltration
     * [Windows - Archiving and Compression](Network/Data_Exfiltration/Windows-Archiving_and_Compression.md)
+    * [Windows - bitsadmin](Network/Data_Exfiltration/Windows_bitsadmin.md)
     * [Windows-Linux - Curl & SimpleHTTPServerwithUpload](Network/Data_Exfiltration/Windows-Linux-Curl-SimpleHTTPServerwithUpload.md)
     * [Windows-to-Linux - Powershell to Samba](Network/Data_Exfiltration/Powershell-SAMBA.md)
+
 
 ## Infrastructure Setup
 * [Nginx Reverse Proxy to Dradis & Eyewitness](Infrastructure_Setup/NginxReverseProxy_Dradis-Eyewitness.md)
