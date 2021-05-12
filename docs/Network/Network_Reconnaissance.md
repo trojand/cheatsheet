@@ -42,6 +42,10 @@ Make sure to replace "X.X.X"
 FOR /L %i IN (1,1,254) DO ping -n 1 X.X.X.%i | FIND /i "Reply" >> c:\ipaddresses.txt
 ```
 
+---
+## View different databases using 1 tool
+* dbeaver
+
 
 
 [^1]: [PuckieStyle](https://www.puckiestyle.nl/smb-enum/)
