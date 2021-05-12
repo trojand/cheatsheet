@@ -159,6 +159,11 @@ nc -l -p 9999 | xz -dc | tar xvf -
 tar cvf - . | xz -c | nc 192.168.0.1 9999
 ```
 
+## Base64 encode
+* You could use this for encoding powershell one-liners
+```bash
+iconv -f ASCII -t UTF-16LE powershell_payload.txt | base64 | tr -d "\n"
+```
 
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
 [^2]: [StackOverflow](https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed)
