@@ -2,6 +2,9 @@
 
 
 **Note:** Try as much as possible to [Live off the land](https://lolbas-project.github.io/)
+## Good blogs for these:
+* [BHIS - Finding Buried Treasure SMB](https://www.blackhillsinfosec.com/finding-buried-treasure-in-server-message-block-smb/)
+
 ___
 
 ## Just basic stuff
@@ -133,7 +136,14 @@ ___
 adfind.exe -f objectclass=trusteddomain
 adfind.exe -sc trustdmp
 ```
-    
+
+---
+## ADRecon[^10]
+```powershell
+# On your own Windows VM after "runas" command
+.\ADRecon.ps1 -Method LDAP -DomainControler dc01.acme.local -Credential ACME\user01
+```
+
 [^1]: [ired.team](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)
 [^2]: [hausec](https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/)
 [^3]: [Github - Bloodhound](https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors)
@@ -143,3 +153,4 @@ adfind.exe -sc trustdmp
 [^7]: [Tarlogic Security](https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a)
 [^8]: [Pure Security](https://pure.security/dumping-windows-credentials/)
 [^9]: [Redcanary](https://redcanary.com/threat-detection-report/techniques/domain-trust-discovery/)
+[^10]: [Github - ADRecon](https://github.com/adrecon/ADRecon)
