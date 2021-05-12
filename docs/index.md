@@ -5,9 +5,7 @@
 * [Backlinks Checker](OSINT/Backlink_Check.md)
 
 ## Network
-* ### Reconnaissance
-    * [Ping Sweep (Host Discovery) using Windows CLI](Network/Reconnaissance/PingSweep-Windows-CLI.md)
-    * [SMB Enumeration](Network/Reconnaissance/SMB_Enum.md)
+* [Reconnaissance](Network/Reconnaissance.md)
 
 * ### Connections
     * [Plink with RDP](Network/Connections/Plink-RDP.md)
