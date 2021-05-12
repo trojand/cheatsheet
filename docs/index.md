@@ -5,7 +5,7 @@
 * [Backlinks Checker](OSINT/Backlink_Check.md)
 
 ## Network
-* [Reconnaissance](Network/Reconnaissance.md)
+* [Network Reconnaissance](Network/Network_Reconnaissance.md)
 * [Password Spraying](Network/Password_Spraying.md)
 
 * ### Connections
@@ -45,6 +45,7 @@
     * [Persistent Automated Collaborator](Web/BurpSuite/Persistent_Automated_Collaborator.md)
     * [Broken Authentication Checks](Web/BurpSuite/Broken_Authentication_Checks.md)
     * [Chromium Proxy Setup](Web/BurpSuite/Chromium_Proxy_Setup.md)
+* [Web Reconnaissance](Web/Web_Reconnaissance.md)
 
 ## Windows
 * [Initial Foothold](Windows/Initial_Foothold.md)
