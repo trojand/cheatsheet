@@ -46,8 +46,7 @@
     * [Chromium Proxy Setup](Web/BurpSuite/Chromium_Proxy_Setup.md)
 
 ## Windows
-* ### Initial Foothold
-    * [Regular Windows Domain Account](Windows/Initial_Foothold/After-Achieving-a-Regular-Windows-Domain_account.md)
+* [Initial Foothold](Windows/Initial_Foothold.md)
 
 * ### Dumping Credentials
     * #### Windows
