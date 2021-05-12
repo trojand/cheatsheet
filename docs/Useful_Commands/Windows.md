@@ -61,6 +61,22 @@ wmic logicaldisk get description,name | findstr /C:"Local"
 fsutil fsinfo drives
 ```
 
+### bitsadmin[^4]
+#### Copying a File
+* Better than copy. Less conspicuous by having the service do it for you.
+```batch
+bitsadmin /create JOB & bitsadmin /addfile JOB <LOCAL_SRC> <LOCAL_DST> & bitsadmin /resume JOB & bitsadmin /complete JOB
+bitsadmin /create JOB & bitsadmin /addfile JOB %SystemRoot%\System32\cmd.exe C:\Users\Administrator\cmd.exe & bitsadmin /resume JOB & bitsadmin /complete JOB
+```
+#### Execute a file
+* Good for executing files as this will run under `svchost -k netsvcs` as a child process and not under you command prompt
+```batch
+bitsadmin /create JOB & bitsadmin /addfile JOB <LOCAL_SRC> <LOCAL_DST> & bitsadmin /SetNotifyCmdLine JOB <PROGRAM_NAME> <PARAMETERS> & bitsadmin /resume JOB & bitsadmin /reset
+bitsadmin /create JOB & bitsadmin /addfile JOB %TEMP%\test1.txt %TEMP%\test2.txt & bitsadmin /SetNotifyCmdLine JOB C:\Windows\System32\calc.exe NULL & bitsadmin /resume JOB & bitsadmin /reset
+```
+
+
+
 ---
 ## Windows - Powershell 
 
@@ -148,3 +164,4 @@ Write-Output $ENCODED
 [^1]: [Windows Commandline - List local drives from command line](https://www.windows-commandline.com/list-local-drives-command-line/)
 [^2]: [Abatchy](https://www.abatchy.com/2017/03/powershell-download-file-one-liners)
 [^3]: [Tech Expert](https://techexpert.tips/powershell/powershell-base64-encoding/)
+[^4]: [TrustedSec - BITS for Script Kiddies](https://www.trustedsec.com/blog/bits-for-script-kiddies/)
