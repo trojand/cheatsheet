@@ -41,8 +41,7 @@ nav:
         - 'Windows':
           - 'Secretsdump.py': 'Windows/Dumping_Credentials/Impacket-secretsdump.md'
           - 'Procdump & Mimikatz': 'Windows/Dumping_Credentials/Procdump-Mimikatz.md'
-      - 'Initial_Foothold':
-        - 'Regular Windows Domain Account': 'Windows/Initial_Foothold/After-Achieving-a-Regular-Windows-Domain_account.md'
+      - 'Initial Foothold': 'Windows/Initial_Foothold.md'
       - 'Misc':
         - 'Domain User Tracking': 'Windows/Misc/DomainUser_Tracking.md'
         - 'Pop calc and alike': 'Windows/Misc/Pop_calc_and_alike.md'
