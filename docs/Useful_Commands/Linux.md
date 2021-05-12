@@ -166,6 +166,29 @@ tar cvf - . | xz -c | nc 192.168.0.1 9999
 iconv -f ASCII -t UTF-16LE powershell_payload.txt | base64 | tr -d "\n"
 ```
 
+## Rsync
+* Similar to SCP but better overall especially long term[^8]
+```bash
+rsync -azP root@192.168.1.1:/home/some_directory ./
+```
+
+## Compressed RDP for low bandwidth
+* Lower your MTU first
+    ```bash
+    ifconfig mtu 1200 <interface>
+    ifconfig mtu 1200 tun0
+    ```
+* rdesktop
+    ```bash
+    rdesktop -a 16 -z -r sound:remote -x b -g 1900x1000 -u <USERNAME> -p <PASSWORD> 192.168.1.5
+    rdesktop -a 16 -z -r sound:remote -x b -g 1900x1000 -u master -p masterlab 192.168.1.5
+    
+    rdesktop -a 16 -P -z -E -T <TAG-WindowName> -d <domain> -u <username> -p <password or '-' for prompt> 192.168.1.5
+    rdesktop -a 16 -P -z -E -T COMPANY-DC3 -d company.local -u administrator -p P@ssw0rd 192.168.1.5
+    ```
+
+
+
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
 [^2]: [StackOverflow](https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed)
 [^3]: [It's FOSS](https://itsfoss.com/recover-deleted-files-linux/)
