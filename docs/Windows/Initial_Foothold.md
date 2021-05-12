@@ -144,6 +144,22 @@ adfind.exe -sc trustdmp
 .\ADRecon.ps1 -Method LDAP -DomainControler dc01.acme.local -Credential ACME\user01
 ```
 
+---
+## Domain Password Spraying
+### Dafthack's DomainPasswordSpray[^11]
+* Retrieves the list of domain users, sprays and attempts to detect lockout threshold of a user and stops spraying
+```powershell
+Import-Module .\DomainPasswordSpray.ps1
+Invoke-DomainPasswordSpray -Password Spring2017
+```
+
+### Find interesting Domain Share Files[^12]
+```powershell
+Find-InterestingDomainShareFile
+```
+
+
+
 [^1]: [ired.team](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)
 [^2]: [hausec](https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/)
 [^3]: [Github - Bloodhound](https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors)
@@ -154,3 +170,5 @@ adfind.exe -sc trustdmp
 [^8]: [Pure Security](https://pure.security/dumping-windows-credentials/)
 [^9]: [Redcanary](https://redcanary.com/threat-detection-report/techniques/domain-trust-discovery/)
 [^10]: [Github - ADRecon](https://github.com/adrecon/ADRecon)
+[^11]: [Guthub - DomainPasswordSpray](https://github.com/dafthack/DomainPasswordSpray)
+[^12]: [Readthedocs - Powersploit](https://powersploit.readthedocs.io/en/latest/Recon/Find-InterestingDomainShareFile/)
