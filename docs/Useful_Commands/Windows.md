@@ -50,7 +50,18 @@ netsh interface portproxy add v4tov4 listenport=<LPORT> listenaddress=0.0.0.0 co
 netsh wlan show networks mode=bssid
 ```
 
+### Check for logged on users
+```batch
+query user
+```
 
+### List local drives[^1]
+```batch
+wmic logicaldisk get description,name | findstr /C:"Local"
+fsutil fsinfo drives
+```
+
+---
 ## Windows - Powershell 
 
 ### Nested quotes or wrapping multiple double quotes
@@ -109,6 +120,21 @@ netsh wlan show networks mode=bssid
     Get-Content output.log -Tail 10 -Wait | Select-String -Pattern "password" -Context 0,3
     ```
 
+### Find files and contents
+* Find files with using filenames
+    ```powershell
+    Get-ChildItem "C:\" -recurse -filter "*password*"
+    ```
+* Find contents in files
+    ```powershell
+    Get-ChildItem "C:\Users" -recurse | Select-String -pattern "passw" | group path | select name
+    ```
+
+### Expand Archives
+```powershell
+Expand-Archive Procdump.zip -DestinationPath "C:\temp\" -Force -Verbose
+```
+
 ### Base64 Encode Powershell commands
 * Some use cases:
     * Encoding[^2] [Powershell one-liners](../Windows/Shells.html#one-liners)
@@ -118,5 +144,7 @@ $ENCODED = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($MYCOMMAN
 Write-Output $ENCODED
 ```
 
-[^1]: [Abatchy](https://www.abatchy.com/2017/03/powershell-download-file-one-liners)
-[^2]: [Tech Expert](https://techexpert.tips/powershell/powershell-base64-encoding/)
+
+[^1]: [Windows Commandline - List local drives from command line](https://www.windows-commandline.com/list-local-drives-command-line/)
+[^2]: [Abatchy](https://www.abatchy.com/2017/03/powershell-download-file-one-liners)
+[^3]: [Tech Expert](https://techexpert.tips/powershell/powershell-base64-encoding/)
