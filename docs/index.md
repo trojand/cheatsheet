@@ -46,7 +46,7 @@
 ## Windows
 * [Initial Foothold](Windows/Initial_Foothold.md)
 
-* [Post-Exploitationn](Windows/Post_Exploitation.md)
+* [Post-Exploitation](Windows/Post_Exploitation.md)
 
 * ### Misc
     * [Domain User Tracking](Windows/Misc/DomainUser_Tracking.md)
