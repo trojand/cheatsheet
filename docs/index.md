@@ -46,10 +46,7 @@
 ## Windows
 * [Initial Foothold](Windows/Initial_Foothold.md)
 
-* ### Dumping Credentials
-    * #### Windows
-        * [Secretsdump.py](Windows/Dumping_Credentials/Impacket-secretsdump.md)
-        * [Procdump & Mimikatz](Windows/Dumping_Credentials/Procdump-Mimikatz.md)
+* [Post-Exploitationn](Windows/Post_Exploitation.md)
 
 * ### Misc
     * [Domain User Tracking](Windows/Misc/DomainUser_Tracking.md)
