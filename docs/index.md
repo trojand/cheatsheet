@@ -56,7 +56,6 @@
 
 * ### Misc
     * [Domain User Tracking](Windows/Misc/DomainUser_Tracking.md)
-    * [encoding powershell commands to Base64](Windows/Misc/Base64_encode_powershell_commands.md)
     * [Pop calc and alike](Windows/Misc/Pop_calc_and_alike.md)
     
 * [Shells](Windows/Shells.md)
