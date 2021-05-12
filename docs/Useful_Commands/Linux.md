@@ -192,6 +192,26 @@ rsync -azP root@192.168.1.1:/home/some_directory ./
     rdesktop -a 16 -P -z -E -T COMPANY-DC3 -d company.local -u administrator -p P@ssw0rd 192.168.1.5
     ```
 
+## Encrypting files
+### zip[^8]
+```bash
+zip -e secure.tar.xz.zip notsecure.tar.xz -P someGoodPassword
+unzip secure.tar.xz.zip
+```
+### tar & OpenSSL[^9][^10]
+* Unreliable decryption (Have not yet figured out if it's due to different openssl versions or arch)
+* This one requires an active tty, need to manually type passphrase
+```bash
+tar --xz -cvf - *  | openssl enc -e -aes256 -out secured.tar.gz
+```
+* Did not work in some instances, try on Debian
+```bash
+tar --xz -cvf - *  | openssl enc -e -aes256 -out secured.tar.gz -pass file:<( echo -n "someGoodPassword" )
+```
+* Decryption
+```bash
+openssl enc -d -aes256 -in secured.tar.gz | tar --xz -xv
+```
 
 
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
@@ -201,3 +221,6 @@ rsync -azP root@192.168.1.1:/home/some_directory ./
 [^5]: [Phoenixnap](https://phoenixnap.com/kb/iptables-tutorial-linux-firewall)
 [^6]: [6c2e6e2e - Spawning interactive reverse shells with TTY](https://medium.com/@6c2e6e2e/spawning-interactive-reverse-shells-with-tty-a7e50c44940e)
 [^7]: [Tutorials Technology - How to transfer files over the network using Netcat ](https://tutorials.technology/tutorials/How-to-transfer-files-over-the-network-using-Netcat.html)
+[^8]: [StackOverflow - How zip file with encryption from bash script](https://stackoverflow.com/questions/52093920/how-zip-file-with-encryption-from-bash-script)
+[^9]: [Tecmint - How to Encrypt and Decrypt Files and Directories Using Tar and OpenSSL](https://www.tecmint.com/encrypt-decrypt-files-tar-openssl-linux/)
+[^10]: [StackOverflow - Securely passing password to openssl via stdin](https://stackoverflow.com/questions/6321353/securely-passing-password-to-openssl-via-stdin)
