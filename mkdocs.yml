@@ -35,11 +35,8 @@ nav:
           - 'Broken Authentication Checks': 'Web/BurpSuite/Broken_Authentication_Checks.md'
           - 'Chromium Proxy Setup': 'Web/BurpSuite/Chromium_Proxy_Setup.md'
     - Windows:
-      - 'Dumping_Credentials':
-        - 'Windows':
-          - 'Secretsdump.py': 'Windows/Dumping_Credentials/Impacket-secretsdump.md'
-          - 'Procdump & Mimikatz': 'Windows/Dumping_Credentials/Procdump-Mimikatz.md'
       - 'Initial Foothold': 'Windows/Initial_Foothold.md'
+      - 'Post-Exploitation': 'Windows/Post_Exploitation.md'
       - 'Misc':
         - 'Domain User Tracking': 'Windows/Misc/DomainUser_Tracking.md'
         - 'Pop calc and alike': 'Windows/Misc/Pop_calc_and_alike.md'
