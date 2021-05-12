@@ -3,9 +3,7 @@ nav:
       - 'Useful Tools & Online Services': 'OSINT/Useful_Tools_URLs.md'
       - 'Backlinks Checker': 'OSINT/Backlink_Check.md'
     - Network:
-        - 'Reconnaissance':
-            - 'Ping Sweep Host Discovery using Windows CLI': 'Network/Reconnaissance/PingSweep-Windows-CLI.md'
-            - 'SMB Enumeration': 'Network/Reconnaissance/SMB_Enum.md'
+        - 'Reconnaissance': 'Network/Reconnaissance.md'
         - 'Connections':
             - 'Plink with RDP': 'Network/Connections/Plink-RDP.md'
             - 'SSH Tunneling + SSHuttle and Chisel': 'Network/Connections/SSH_Tunneling.md'
