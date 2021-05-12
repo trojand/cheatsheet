@@ -70,13 +70,15 @@ bloodhound
        * If logged in on a local user account but have domain user credentials, then on the command-line
        * This works also to get SharpHound to work and ingest data even if your own Windows VM is not part of the Domain.
            * This bypasses the need to run SharpHound ps1 on the host itself with AVs/ERDs
-   ```powershell
-   C:\> runas /netonly /user:<DOMAIN>\<username> powershell.exe
-   
-   # then on the spawned powershell
-   Import-Module .\SharpHound.ps1
-   Invoke-BloodHound -CollectionMethod All -CompressData -RemoveCSV -NoSaveCache
-   ```
+       ```powershell
+       C:\> runas /netonly /user:<DOMAIN>\<username> powershell.exe
+
+       # then on the spawned powershell
+       Import-Module .\SharpHound.ps1
+       Invoke-BloodHound -CollectionMethod All -CompressData -RemoveCSV -NoSaveCache
+       ```
+   * Run after sharphound for some nice statistics
+       * [Bloodhound Quickwin](https://github.com/kaluche/bloodhound-quickwin)   
 
 ___
 ## General Attack methods
