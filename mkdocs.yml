@@ -4,6 +4,7 @@ nav:
       - 'Backlinks Checker': 'OSINT/Backlink_Check.md'
     - Network:
         - 'Reconnaissance': 'Network/Reconnaissance.md'
+        - 'Password Spraying': 'Network/Password_Spraying.md'
         - 'Connections':
             - 'Plink with RDP': 'Network/Connections/Plink-RDP.md'
             - 'SSH Tunneling + SSHuttle and Chisel': 'Network/Connections/SSH_Tunneling.md'
