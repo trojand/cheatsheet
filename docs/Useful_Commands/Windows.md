@@ -99,6 +99,8 @@ net user trojand imareallyreallyreallylongpasswordnow
     ```
 
 ### Base64 Encode Powershell commands
+* Some use cases:
+    * Encoding[^2] [Powershell one-liners](../Windows/Shells.html#one-liners)
 ```powershell
 $MYCOMAND = "Invoke-WebRequest -Uri 'http://www.contoso.com' -OutFile 'C:\path\file'"
 $ENCODED = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($MYCOMMAND))
@@ -106,3 +108,4 @@ Write-Output $ENCODED
 ```
 
 [^1]: [Abatchy](https://www.abatchy.com/2017/03/powershell-download-file-one-liners)
+[^2]: [Tech Expert](https://techexpert.tips/powershell/powershell-base64-encoding/)
