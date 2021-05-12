@@ -67,9 +67,8 @@ These are just some of the ways
     
         
 ## Powershell
+   * Get fully interactive shell with [ConPtyShell](https://github.com/antonioCoco/ConPtyShell)
    * Please see script with examples above (mshta - var a,b and c)
    * To be added here and more
    * Working shells I have tried:
       * [Mini-Reverse](https://gist.github.com/staaldraad/204928a6004e89553a8d3db0ce527fd5) by @staaldraad
-
-
