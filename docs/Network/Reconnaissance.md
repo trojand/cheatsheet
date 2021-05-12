@@ -1,15 +1,14 @@
-# SMB Host discovery and enumeration
+# Reconnaissance quick commands
 
-
-## NMAP Commands
+## SMB Enum
+### NMAP Commands
 Note: Still a draft [^1]
 
 ```bash
 nmap -n -sV --script "ldap* and not brute" -p 389 <DC_IP>
 ```
 
----
-## smbver.sh
+### smbver.sh
 Know the version of SMB [^2]
 ```bash
 #!/bin/sh
@@ -27,6 +26,23 @@ tcpdump -s0 -n -i tap0 src $rhost and port $rport -A -c 7 2>/dev/null | grep -i 
 echo "exit" | smbclient -L $rhost 1>/dev/null 2>/dev/null
 echo "" && sleep .1
 ```
+
+## Autorecon
+```bash
+sudo docker run --rm -it -v /root/Results/ACME/autorecon:/results -v ~/Scope/ACME/ips.txt:/root/ips.txt  tib3rius/autorecon -ct 2 -cs 2 -t ~/ips.txt --only-scans-dir -vv
+```
+
+## Host Discovery on the network using Windows Command-line
+
+### Description
+Usually used if full pivoting on the compromised host is not intended or is having issues
+
+Make sure to replace "X.X.X"
+```batch
+FOR /L %i IN (1,1,254) DO ping -n 1 X.X.X.%i | FIND /i "Reply" >> c:\ipaddresses.txt
+```
+
+
 
 [^1]: [PuckieStyle](https://www.puckiestyle.nl/smb-enum/)
 [^2]: [HackTricks](https://book.hacktricks.xyz/pentesting/pentesting-smb)
