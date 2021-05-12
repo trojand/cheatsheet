@@ -26,12 +26,12 @@ tcpdump -s0 -n -i tap0 src $rhost and port $rport -A -c 7 2>/dev/null | grep -i 
 echo "exit" | smbclient -L $rhost 1>/dev/null 2>/dev/null
 echo "" && sleep .1
 ```
-
+---
 ## Autorecon
 ```bash
 sudo docker run --rm -it -v /root/Results/ACME/autorecon:/results -v ~/Scope/ACME/ips.txt:/root/ips.txt  tib3rius/autorecon -ct 2 -cs 2 -t ~/ips.txt --only-scans-dir -vv
 ```
-
+---
 ## Host Discovery on the network using Windows Command-line
 
 ### Description
