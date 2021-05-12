@@ -45,6 +45,7 @@
     * [Persistent Automated Collaborator](Web/BurpSuite/Persistent_Automated_Collaborator.md)
     * [Broken Authentication Checks](Web/BurpSuite/Broken_Authentication_Checks.md)
     * [Chromium Proxy Setup](Web/BurpSuite/Chromium_Proxy_Setup.md)
+    * [Extensions](Web/BurpSuite/Extensions.md)
 * [Web Reconnaissance](Web/Web_Reconnaissance.md)
 
 ## Windows
