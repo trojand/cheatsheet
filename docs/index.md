@@ -60,6 +60,7 @@
     * [Pop calc and alike](Windows/Misc/Pop_calc_and_alike.md)
     
 * [Shells](Windows/Shells.md)
+* [Evasion](Windows/Evasion.md)
 
 ## Password Cracking
 * [Hashcat Cheatsheet](Password_Cracking/Hashcat_general_cheatsheet.md)
