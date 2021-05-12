@@ -40,6 +40,17 @@ tree /f /a > tree.txt
 net user trojand imareallyreallyreallylongpasswordnow
 ```
 
+### Windows Built-in Plink for relay
+```batch
+netsh interface portproxy add v4tov4 listenport=<LPORT> listenaddress=0.0.0.0 connectport=<RPORT> connectaddress=<RHOST>
+```
+
+### Show wireless interfaces
+```batch
+netsh wlan show networks mode=bssid
+```
+
+
 ## Windows - Powershell 
 
 ### Nested quotes or wrapping multiple double quotes
