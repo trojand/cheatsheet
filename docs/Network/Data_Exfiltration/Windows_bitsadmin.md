@@ -2,9 +2,9 @@
 
 ## Download[^1]
 * If you remove the timeout (`timeout /T 10`) , make sure to still execute `bitsadmin /complete JOB` after the job has completed.
-* Advangates:
+* Advantages:
     * Can resume upon disconnection
-* Disadvantes:
+* Disadvantages:
     * Slow
 ```batch
 bitsadmin /create JOB & bitsadmin /addfile JOB <REMOTE_SRC> <LOCAL_DST> & bitsadmin /resume JOB & timeout /T 10 & bitsadmin /complete JOB
