@@ -1,6 +1,10 @@
 # Using Curl to POST data to SimpleHTTPServerWithUpload.py
 
 
+## Better version of this with Project Discovery's SimpleHTTPServer in Go [here](../../Infrastructure_Setup/Simple_Python_Go_Packages.html#projectdiscovery-simplehttpserver)
+
+
+---
 ## Caveats
 * Insecure communications (HTTP)
     * Choose a server that accepts POST request and makes use of HTTPS
