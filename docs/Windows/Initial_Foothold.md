@@ -71,6 +71,11 @@ bloodhound
 1. Sharphound Officialy supported ingestors [^3][^4]
    * Running the official/supported Sharphound Collectors collects more information [
        * although Bloodhound.py is quick and good for most cases
+       ```powershell
+       # On the victim host
+       Import-Module .\SharpHound.ps1
+       Invoke-BloodHound -CollectionMethod All -CompressData -RemoveCSV -NoSaveCache -RandomizeFilenames -EncryptZip
+       ```
    * Runas
        * If logged in on a local user account but have domain user credentials, then on the command-line
        * This works also to get SharpHound to work and ingest data even if your own Windows VM is not part of the Domain.
@@ -80,7 +85,7 @@ bloodhound
 
        # then on the spawned powershell
        Import-Module .\SharpHound.ps1
-       Invoke-BloodHound -CollectionMethod All -CompressData -RemoveCSV -NoSaveCache
+       Invoke-BloodHound -CollectionMethod All
        ```
    * Run after sharphound for some nice statistics
        * [Bloodhound Quickwin](https://github.com/kaluche/bloodhound-quickwin)   
