@@ -180,8 +180,8 @@ Find-InterestingDomainShareFile
 ---
 ## Pivoting
 ### Executing Commands Remotely
-* PsExec
-* Powershell Remote Session (PSRemote)
+#### PsExec
+#### Powershell Remote Session (PSRemote)
     * "Usual" requirement is that you must be in the same subnet as the machine you are connecting to
     * Create a session
         * Without specified credentials
@@ -206,11 +206,15 @@ Find-InterestingDomainShareFile
         ```powershell
         Remove-PSSession -Id <#>
         ```
-* Windows Remote Management
+#### Windows Remote Management
     ```batch
     winrs -r:DC01.domain.com cmd
     ```
-
+#### WMIC
+    * Run a DLL file remotely using `wmic` via `installutil`[^13]
+        ```powershell
+        wmic /node:dc01.domain.com process call create "cmd.exe /c \windows\microsoft.net\framework64\v4.0.30319\installutil.exe /logfile= /u \temp\file.dll"
+        ```
 
 
 [^1]: [ired.team](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)
@@ -225,3 +229,4 @@ Find-InterestingDomainShareFile
 [^10]: [Github - ADRecon](https://github.com/adrecon/ADRecon)
 [^11]: [Guthub - DomainPasswordSpray](https://github.com/dafthack/DomainPasswordSpray)
 [^12]: [Readthedocs - Powersploit](https://powersploit.readthedocs.io/en/latest/Recon/Find-InterestingDomainShareFile/)
+[^13]: [Move Aside Script Kiddies–Malware Execution in the Age of Advanced Defenses | Joff Thyer](https://www.youtube.com/watch?v=wTmQ5FaRmf4)
