@@ -61,6 +61,7 @@ netsh wlan show networks mode=bssid
 ### Check for logged on users
 ```batch
 query user
+qwinsta
 ```
 
 ### List local drives[^1]
