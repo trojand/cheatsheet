@@ -170,6 +170,40 @@ Invoke-DomainPasswordSpray -Password Spring2017
 Find-InterestingDomainShareFile
 ```
 
+---
+## Pivoting
+### Executing Commands Remotely
+* PsExec
+* Powershell Remote Session (PSRemote)
+    * "Usual" requirement is that you must be in the same subnet as the machine you are connecting to
+    * Create a session
+        * Without specified credentials
+            ```powershell
+            New-PSSession dc01.domain.com
+            $s = New-PSSession dc01.domain.com
+            ```
+        * Create a session with credentials
+            ```powershell
+            $cred = get-credential
+            New-PSSession dc01.domain.com –Credential $cred
+            ```
+    * Run commands remotely via PSSession
+        ```powershell
+        Invoke-Command -Session $s -FilePath C:\Temp\Rubeus.ps1
+        ```
+    * Interactive PSSession
+        ```powershell
+        Enter-PSSession -Id <#>
+        ```
+    * Exit PSSession
+        ```powershell
+        Remove-PSSession -Id <#>
+        ```
+* Windows Remote Management
+    ```batch
+    winrs -r:DC01.domain.com cmd
+    ```
+
 
 
 [^1]: [ired.team](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)
