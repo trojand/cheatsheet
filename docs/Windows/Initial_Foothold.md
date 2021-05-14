@@ -14,6 +14,8 @@ whoami /all
 hostname
 ipconfig /all
 systeminfo
+query user
+qwinsta
 gpresult /R 
 dir
 tree /f /a
