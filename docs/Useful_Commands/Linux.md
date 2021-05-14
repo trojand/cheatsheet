@@ -213,6 +213,13 @@ tar --xz -cvf - *  | openssl enc -e -aes256 -out secured.tar.gz -pass file:<( ec
 openssl enc -d -aes256 -in secured.tar.gz | tar --xz -xv
 ```
 
+## Generate random passwords
+```bash
+openssl rand 256 | sha256sum | cut -d " " -f1
+
+SERVICE_PASSWORD=$(openssl rand 32 | sha256sum | cut -d' ' -f1)
+echo $SERVICE_PASSWORD
+```
 
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
 [^2]: [StackOverflow](https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed)
