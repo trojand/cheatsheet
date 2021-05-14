@@ -87,6 +87,7 @@
 * [Code Review & Regex](Useful_Commands/Code_Review_Regex.md)
 * [Mobile Application Security Testing](Useful_Commands/Mobile_App_Security_Testing.md)
 * [Python Tips](Useful_Commands/Python_Tips.md)
+* [JQ Tips](Useful_Commands/jq.md)
 
 ## Methodologies
 * [Pentesting Sharepoint](Methodologies/Sharepoint.md)
