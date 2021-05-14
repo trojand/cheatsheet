@@ -24,7 +24,7 @@ nav:
       - 'Non-Privileged Port Binding': 'Infrastructure_Setup/Non-Privileged_Port_Binding.md'
       - 'Systemctl with Normal User Privileges': 'Infrastructure_Setup/Systemctl_with_user_privileges.md'
       - 'Connection Check': 'Infrastructure_Setup/Connection_Check.md'
-      - 'OpenVPN auto-connect at Startup': 'Infrastructure_Setup/OpenVPN_AutoConnect.md'
+      - 'OpenVPN': 'Infrastructure_Setup/OpenVPN.md'
       - 'Process and network connetion monitoring': 'Infrastructure_Setup/Process_and_network_connection_monitoring.md'
       - 'SSH Config Template': 'Infrastructure_Setup/SSH_Config_Template.md'
       - 'Create a swapfile': 'Infrastructure_Setup/Create_Swapfile.md'
