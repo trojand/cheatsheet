@@ -28,34 +28,35 @@
 
 
 ### XML Serialization
-    * Grep for the following which might give a hint for XML Deserialization 
-        ```
-        .GetType(
-        .GetType().AssemblyQualifiedName
-        XmlSerializer(
-        Serializer
-        .Serialize(
-        .Deserialize(
-        = new XmlDocument()
-        DeSerializeHashtable
-        XmlUtils.DeSerializeHashtable
-        ```
-    * Payload or abusable functions
-        * `FileSystemUtils.PullFile`
-        * `ObjectDataProvider`
-            * Can be used to provide a binding source
-            * To retrieve data from any of your called methods and classes without violating XMLSerializers restrictions/limitations to public fields and properties
-        * `ExtendedWrapper`
-            * To have a generic wrapper to fake a method so it would be accepted for example by XmlSerializer
-    * Public read/write properties and fields of public classes
-    * Only public properties and fields not public class
-    * Cannot serialize class methods”
-    * Objects
-        * XmlElement
-        * XmlNode
-        * DataSet
+* Grep for the following which might give a hint for XML Deserialization 
+    ```
+    .GetType(
+    .GetType().AssemblyQualifiedName
+    XmlSerializer(
+    Serializer
+    .Serialize(
+    .Deserialize(
+    = new XmlDocument()
+    DeSerializeHashtable
+    XmlUtils.DeSerializeHashtable
+    ```
+* Payload or abusable functions
+    * `FileSystemUtils.PullFile`
+    * `ObjectDataProvider`
+        * Can be used to provide a binding source
+        * To retrieve data from any of your called methods and classes without violating XMLSerializers restrictions/limitations to public fields and properties
+    * `ExtendedWrapper`
+        * To have a generic wrapper to fake a method so it would be accepted for example by XmlSerializer
+* Public read/write properties and fields of public classes
+* Only public properties and fields not public class
+* Cannot serialize class methods”
+* Objects
+    * XmlElement
+    * XmlNode
+    * DataSet
 
 ---
+
 ## Java
 
 ### Notes from Afinepl's blog
