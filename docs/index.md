@@ -41,12 +41,14 @@
 * [Download and install apt, pip3 packages and dependencies offline](Linux/Downloading_apt_pip3_packages_offline.md)
 
 ## Web
+* [Web Reconnaissance](Web/Web_Reconnaissance.md)
 * ### Burp Suite
     * [Persistent Automated Collaborator](Web/BurpSuite/Persistent_Automated_Collaborator.md)
     * [Broken Authentication Checks](Web/BurpSuite/Broken_Authentication_Checks.md)
     * [Chromium Proxy Setup](Web/BurpSuite/Chromium_Proxy_Setup.md)
     * [Extensions](Web/BurpSuite/Extensions.md)
-* [Web Reconnaissance](Web/Web_Reconnaissance.md)
+* [Node.js](Web/Node.js.md)
+
 
 ## Windows
 * [Initial Foothold](Windows/Initial_Foothold.md)
