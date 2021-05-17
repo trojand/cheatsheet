@@ -48,6 +48,7 @@
     * [Chromium Proxy Setup](Web/BurpSuite/Chromium_Proxy_Setup.md)
     * [Extensions](Web/BurpSuite/Extensions.md)
 * [Node.js](Web/Node.js.md)
+* [Deserialization](Web/Deserialization.md)
 
 
 ## Windows
