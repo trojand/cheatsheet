@@ -51,6 +51,7 @@
 * [Deserialization](Web/Deserialization.md)
 * [SSTI](Web/SSTI.md)
 * [XXE Injection](Web/XXE_Injection.md)
+* [XSS](Web/XSS.md)
 
 
 ## Windows
