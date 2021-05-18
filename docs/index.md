@@ -50,6 +50,7 @@
 * [Node.js](Web/Node.js.md)
 * [Deserialization](Web/Deserialization.md)
 * [SSTI](Web/SSTI.md)
+* [XXE Injection](Web/XXE_Injection.md)
 
 
 ## Windows
