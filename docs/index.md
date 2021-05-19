@@ -104,3 +104,4 @@
 ## Woah I'm Blue!
 * [Ransomware](Woah_Im_Blue/Ransomware.md)
 * [Deception Tips](Woah_Im_Blue/Deception.md)
+* [Logging.md](Woah_Im_Blue/Logging.md)
