@@ -52,6 +52,7 @@
 * [SSTI](Web/SSTI.md)
 * [XXE Injection](Web/XXE_Injection.md)
 * [XSS](Web/XSS.md)
+* [SQL Injection](Web/SQLi.md)
 
 
 ## Windows
