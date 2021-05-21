@@ -1,9 +1,16 @@
-# Payload Evasion Tips & Devops
+# Payload Generation & AV/EDR Evasion Tips + Devops
+
 
 ## Tools
 * [OffensivePipeline](https://github.com/aetsu/OffensivePipeline)
 * [ConfuserEx](https://github.com/mkaring/ConfuserEx)
 * [PowerStrip](http://github.com/Yoda66/PowerStrip)
+* [NetLoader](https://github.com/Flangvik/NetLoader)
+* [SharpPack](https://github.com/mdsecactivebreach/SharpPack)
+
+---
+## Awesoem Resources:
+* [Arty-hlr - How to bypass Defender in a few easy steps](https://arty-hlr.com/blog/2021/05/06/how-to-bypass-defender/)
 
 ---
 ## Loading via System Reflection Assembly[^1]
