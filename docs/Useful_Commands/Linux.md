@@ -221,6 +221,22 @@ SERVICE_PASSWORD=$(openssl rand 32 | sha256sum | cut -d' ' -f1)
 echo $SERVICE_PASSWORD
 ```
 
+## Go through filenames with spaces
+* Basic[^11]
+    ```bash
+    find . -type f -name '*.*' -print0 | 
+    while IFS= read -r -d '' file; do
+        printf '%s\n' "$file"
+    done
+    ```
+* Sample Use Case:
+    * Export thunderbird inbox to get attachments and move all of the exported attachments into 1 folder for easy viewing/archiving
+        * In Thunderbird: `ImportExportTools NG -> Export all messages in the folder - > as single text file (with attachments)`
+        * Sample command:
+            ```bash
+            find ../Thunderbird_Export/ -type f -name '*.*' -print0 | while IFS= read -r -d '' file; do mv "$file" .;done
+            ```
+
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
 [^2]: [StackOverflow](https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed)
 [^3]: [It's FOSS](https://itsfoss.com/recover-deleted-files-linux/)
@@ -231,3 +247,4 @@ echo $SERVICE_PASSWORD
 [^8]: [StackOverflow - How zip file with encryption from bash script](https://stackoverflow.com/questions/52093920/how-zip-file-with-encryption-from-bash-script)
 [^9]: [Tecmint - How to Encrypt and Decrypt Files and Directories Using Tar and OpenSSL](https://www.tecmint.com/encrypt-decrypt-files-tar-openssl-linux/)
 [^10]: [StackOverflow - Securely passing password to openssl via stdin](https://stackoverflow.com/questions/6321353/securely-passing-password-to-openssl-via-stdin)
+[^11]: [AskUbuntu - Filenames with spaces breaking for loop, find command](https://askubuntu.com/a/343753)
