@@ -227,7 +227,6 @@ grep -Ri "XmlUtils.DeSerializeHashtable" *
     * got something out by setting `header ('Location: ')+$string` for example
 * Create test php functions to verify values on the server itself
     ```php
-    # Example from atutor
     # nano /var/www/html/magic.php
     <?php
     var_dump(get_magic_quotes_gpc());
