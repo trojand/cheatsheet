@@ -9,7 +9,7 @@
 * [SharpPack](https://github.com/mdsecactivebreach/SharpPack)
 
 ---
-## Awesoem Resources:
+## Awesome Resources:
 * [Arty-hlr - How to bypass Defender in a few easy steps](https://arty-hlr.com/blog/2021/05/06/how-to-bypass-defender/)
 
 ---
