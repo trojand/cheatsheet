@@ -254,69 +254,75 @@ grep -Ri "XmlUtils.DeSerializeHashtable" *
     grep -rnw /var/www/html/webapp -e "^.*user_location.*public.*" --color
     ```
 ## XXE (XML External Entity)
-    * Find in code for possible usage of XML
-        ```java
-        egrep -ri "XmlUtil.java" *
-        ```
-    * [More XXE](./XXE_Injection.md)
+* Find in code for possible usage of XML
+    ```java
+    egrep -ri "XmlUtil.java" *
+    ```
+* [More XXE](./XXE_Injection.md)
+
 ## Java
-    * Know common java packages such as: (do not waste time decompiling these)
-        * `struts.jar` or `xmlsec-1.3.0.jar`
-    * Open target .jar file with jd-gui and export
-        * File -> Save All Sources (Ctrl + Alt + S)
-        * Open the exported .zip file in notepad++ or sublime text
-    * Review files such as web.xml to study routings
-    * `jshell`
-    * Use regex to find SQLi (separate note)
-    * Random
-        * beware of which random is used
-            * java.util.random is vulnerable
-            * Look for this
-                ```bash
-                grep -Ri "import java.util.Random;" *
-                grep -Ri " = new Random(" *
-                ```
-    * It is **IMPORTANT** to check if debug machine and Kali machine has same time
-        * Kali may be lagging behind
-            * `sudo ntpdate <ntp.server.com>`
-    * Just recreate these libraries that needs imitation in Java.
+* Know common java packages such as: (do not waste time decompiling these)
+    * `struts.jar` or `xmlsec-1.3.0.jar`
+* Open target .jar file with jd-gui and export
+    * File -> Save All Sources (Ctrl + Alt + S)
+    * Open the exported .zip file in notepad++ or sublime text
+* Review files such as web.xml to study routings
+* `jshell`
+* Use regex to find SQLi (separate note)
+* Random
+    * beware of which random is used
+        * java.util.random is vulnerable
+        * Look for this
+            ```bash
+            grep -Ri "import java.util.Random;" *
+            grep -Ri " = new Random(" *
+            ```
+* It is **IMPORTANT** to check if debug machine and Kali machine has same time
+    * Kali may be lagging behind
+        * `sudo ntpdate <ntp.server.com>`
+* Just recreate these libraries that needs imitation in Java.
+
+
 ## JavaScript / NodeJS
-    * `node` for interactive shell for testing
-        * Remember when testing that it is much better to do it on the debug machine’s interactive `node` shell since the version difference can mean a lot and can save/waste a lot of your time.
-    * find commands that execute and trace
-        ```bash
-        grep -rnw "eval(" . --color
-        ```
+* `node` for interactive shell for testing
+    * Remember when testing that it is much better to do it on the debug machine’s interactive `node` shell since the version difference can mean a lot and can save/waste a lot of your time.
+* find commands that execute and trace
+    ```bash
+    grep -rnw "eval(" . --color
+    ```
+
 ## .NET Applications
-    * Debug using **dnSpy**
-        * Once in **dnSpy**, ++right-button++ on "Edit Assembly Attributes"
-        * Replace
-            ```
-            [assembly:Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
-            ```
-        * with
-            ```
-            [assembly: Debuggable(DebuggableAttribute.DebuggingModes.Default | DebuggableAttribute.DebuggingModes.DisableOptimizations | DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints | DebuggableAttribute.DebuggingModes.EnableEditAndContinue)]
-            ```
-        * Make use of "Call Stack" and "Watch" (Variable)
-            * Make use of Breakpoints
-                * +f9+ - Set
-                * +f5+ - Continue
-## Deserialization
-    * More [here](./Deserialization.html)
-    * Tip
-        * Use ysoserial test payload
-            * Combine with `sudo dnschef -i 0.0.0.0` and perform a simple DNS lookup.
-            * This means you need to configure the debug machine to make your Kali as its DNS server (just for testing)
-    * .NET
-        * Check around, see deserialization, use ysoserial easy PoC payloads
-        * XML should be good
-        * Study the functions
-        * Learn to use VS Community variables
-    * Java
-        ```bash
-        grep iR "readObject\(\)" *
+* Debug using **dnSpy**
+    * Once in **dnSpy**, ++right-button++ on "Edit Assembly Attributes"
+    * Replace
         ```
+        [assembly:Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
+        ```
+    * with
+        ```
+        [assembly: Debuggable(DebuggableAttribute.DebuggingModes.Default | DebuggableAttribute.DebuggingModes.DisableOptimizations | DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints | DebuggableAttribute.DebuggingModes.EnableEditAndContinue)]
+        ```
+    * Make use of "Call Stack" and "Watch" (Variable)
+        * Make use of Breakpoints
+            * +f9+ - Set
+            * +f5+ - Continue
+
+## Deserialization
+* More [here](./Deserialization.html)
+* Tip
+    * Use ysoserial test payload
+        * Combine with `sudo dnschef -i 0.0.0.0` and perform a simple DNS lookup.
+        * This means you need to configure the debug machine to make your Kali as its DNS server (just for testing)
+* .NET
+    * Check around, see deserialization, use ysoserial easy PoC payloads
+    * XML should be good
+    * Study the functions
+    * Learn to use VS Community variables
+* Java
+    ```bash
+    grep iR "readObject\(\)" *
+    ```
+
 ## Procmon
 * If you could only write files but can’t execute them directly
     * Find a file using procmon that gets executed frequently
