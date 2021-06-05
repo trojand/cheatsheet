@@ -86,3 +86,11 @@ powershell -EncodedCommand <Base64_payload>
 
 ### Fully interactive powershell
 * Get fully interactive shell with [ConPtyShell](https://github.com/antonioCoco/ConPtyShell)
+
+### Tools for remote CLI connection
+* [Evil-Winrm](https://github.com/Hackplayers/evil-winrm) [^1][^2]
+    ```
+    bundle exec evil-winrm -s "/opt/PowerSharpPack/PowerSharpBinaries" -e "/opt/Sharp collection/NetFramework_4.5_x64"
+    ```
+[^1]: [Sharp Collection](https://github.com/Flangvik/SharpCollection)
+[^2]: [Power Sharp Pack](https://github.com/S3cur3Th1sSh1t/PowerSharpPack)
