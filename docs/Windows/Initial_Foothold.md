@@ -81,7 +81,7 @@ bloodhound
        * This works also to get SharpHound to work and ingest data even if your own Windows VM is not part of the Domain.
            * This bypasses the need to run SharpHound ps1 on the host itself with AVs/ERDs
        ```powershell
-       C:\> runas /netonly /user:<DOMAIN>\<username> powershell.exe
+       C:\> runas /netonly /user:<DOMAIN>\<username> "powershell.exe -exec bypass"
 
        # then on the spawned powershell
        Import-Module .\SharpHound.ps1
@@ -89,7 +89,23 @@ bloodhound
        ```
    * Run after sharphound for some nice statistics
        * [Bloodhound Quickwin](https://github.com/kaluche/bloodhound-quickwin)   
-
+   * Mass import owned users in Bloodhound[^14]
+       * Sample format of text file to import
+           ```
+           bob@acme.local
+           alice@acme.local
+           accounting@acme.local
+           trainee3@acme.local
+           ```
+       * Command. Make sure bloodhound (& neo4j) is already running and credentials are correct:
+           ```
+           python3 max.py -u neo4j -p neo4j mark-owned -f ~/Results/Dump/owned_users.txt --add-note "from secretsdump and weak passwords"
+           ```
+    * Bloodhound attacks
+        * GenericAll [^15]
+            * Although the commands in the reference work, I found that it was easier to modify permissions and other actions (reset user password) using RSAT.
+            * If you're Windows attacking VM is connected to the network, just [run mmc as a domain user](./Initial_Foothold.html#RSAT) (provided you already have the domain user's credentials). 
+            
 ___
 ## General Attack methods
 * Methods [^5][^6]
@@ -164,6 +180,15 @@ adfind.exe -sc trustdmp
 ```
 
 ---
+## RSAT
+* Run RSAT from a non-domain joined PC
+```batch
+runas /netonly /user:<DOMAIN>\<username> "mmc /server=<DC or domain>"
+runas /netonly /user:ACME\bob.normal.user "mmc /server=dc01.acme.local"
+```
+
+
+---
 ## Domain Password Spraying
 ### Dafthack's DomainPasswordSpray[^11]
 * Retrieves the list of domain users, sprays and attempts to detect lockout threshold of a user and stops spraying
@@ -235,3 +260,5 @@ winrs -r:DC01.domain.com cmd
 [^11]: [Guthub - DomainPasswordSpray](https://github.com/dafthack/DomainPasswordSpray)
 [^12]: [Readthedocs - Powersploit](https://powersploit.readthedocs.io/en/latest/Recon/Find-InterestingDomainShareFile/)
 [^13]: [Move Aside Script Kiddies–Malware Execution in the Age of Advanced Defenses | Joff Thyer](https://www.youtube.com/watch?v=wTmQ5FaRmf4)
+[^14]: [Github - Knavesec - Max](https://github.com/knavesec/Max)
+[^15]: [Bloodhound - GenericAll](https://bloodhound.readthedocs.io/en/latest/data-analysis/edges.html#genericall)
