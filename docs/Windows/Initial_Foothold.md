@@ -101,10 +101,10 @@ bloodhound
            ```
            python3 max.py -u neo4j -p neo4j mark-owned -f ~/Results/Dump/owned_users.txt --add-note "from secretsdump and weak passwords"
            ```
-    * Bloodhound attacks
-        * GenericAll [^15]
-            * Although the commands in the reference work, I found that it was easier to modify permissions and other actions (reset user password) using RSAT.
-            * If you're Windows attacking VM is connected to the network, just [run mmc as a domain user](./Initial_Foothold.html#RSAT) (provided you already have the domain user's credentials). 
+1. Bloodhound attacks
+    * GenericAll [^15]
+        * Although the commands in the reference work, I found that it was easier to modify permissions and other actions (reset user password) using RSAT.
+        * If you're Windows attacking VM is connected to the network, just [run mmc as a domain user](./Initial_Foothold.html#rsat) (provided you already have the domain user's credentials). 
             
 ___
 ## General Attack methods
