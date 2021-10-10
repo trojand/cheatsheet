@@ -195,5 +195,5 @@
 
 1. Example commands after build the wordlist:
 	```
-	`.\hashcat.exe -a 0 -m 1000 --force -O .\dumped_hashes.txt .\uber_targeted_custom_wordlist.dict -r .\trojand.rule`
+	`.\hashcat.exe -a 0 -m 1000 --session=company-wordlist-custom --force -O .\dumped_hashes.txt .\uber_targeted_custom_wordlist.dict -r .\trojand.rule`
 	```
