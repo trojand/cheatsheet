@@ -16,14 +16,15 @@
 
 ## Popular hashcat modes
 * `-m 1000`  : NTLM - From sam dump, secretsdump, ntdsutil dump
+* `-m 5600` : NetNTLMv2 (i.e. Captured hash from Responder)
 * `-m 13000` : Kerberoast output
 
 
 ## Practical Brute-Force
 ```powershell
-.\hashcat.exe -a 3 -m 1000 --force -O .\dumped_hashes.txt ?u?l?l?l?d?d?d?d
-.\hashcat.exe -a 3 -m 1000 --force -O .\dumped_hashes.txt ?u?l?l?l?d?d?d?d?s
-.\hashcat.exe -a 3 -m 1000 --force -O .\dumped_hashes.txt ?u?l?l?l?s?d?d?d?d
-.\hashcat.exe -a 3 -m 1000 --force -O .\dumped_hashes.txt ?u?l?l?s?d?d?d?d
-.\hashcat.exe -a 3 -m 1000 --force -O .\dumped_hashes.txt ?u?l?l?d?d?d?d?s
+.\hashcat.exe -a 3 -m 1000 --session=company-bruteforce --force -O .\dumped_hashes.txt ?u?l?l?l?d?d?d?d
+.\hashcat.exe -a 3 -m 1000 --session=company-bruteforce --force -O .\dumped_hashes.txt ?u?l?l?l?d?d?d?d?s
+.\hashcat.exe -a 3 -m 1000 --session=company-bruteforce --force -O .\dumped_hashes.txt ?u?l?l?l?s?d?d?d?d
+.\hashcat.exe -a 3 -m 1000 --session=company-bruteforce --force -O .\dumped_hashes.txt ?u?l?l?s?d?d?d?d
+.\hashcat.exe -a 3 -m 1000 --session=company-bruteforce --force -O .\dumped_hashes.txt ?u?l?l?d?d?d?d?s
 ```
