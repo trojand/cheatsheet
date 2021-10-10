@@ -14,6 +14,12 @@ pipreqs $(pwd)
 ```
 [^1]: [JCharisTech](https://blog.jcharistech.com/2020/11/02/how-to-create-requirements-txt-file-in-python/)
 
+## Update all pip packages
+```bash
+python3 -m pip install --upgrade pip
+pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
+```
+
 ## Global Variables
 ```python
 # Below "import" <insert_package_names>
