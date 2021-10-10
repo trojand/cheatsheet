@@ -44,6 +44,7 @@ url = "www.domain.com:2323/whatever?action=%s&location=%s" % (action,location)
 
 ## Accept custom certificate
 * When using proxy (i.e. Burp), rather than using `verify=False` in the `request.get` or `request.post`, convert the Burp certificate cacert.der instead to cacert.pem then use in on python requests. [^2]
+* Most common use case is the usage of burp certificate for python requests SSL error.
 ```python
 # Converting cacert.der to cacert.pem
 # openssl x509 -in cacert.der -inform DER -outform PEM -out cacert.pem
