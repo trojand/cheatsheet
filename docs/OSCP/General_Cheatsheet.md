@@ -22,6 +22,17 @@ nmap -sC -T4 $host  -oA sC-T4-$host  nmap -sT -T4 $host -oA sT-T4-$rhost  nmap -
 unicornscan -v -m U -p all $rhost unicornscan-udp-$rhost
 python3 autorecon.py $rhost
 ```
+### More NMAP
+* NOTE: Just use [naabu](https://github.com/projectdiscovery/naabu) from Project Discovery for basic TCP port scanning
+* Speeding up NMAP (arguments)
+```
+-T4 --max-rtt-timeout 200ms --max-retries 1 --max-scan-delay 10ms --min-hostgroup 64 --version-intensity 1
+```
+* Resume NMAP scan
+```
+# Which is why it is import to do -oX or -oA
+nmap --resume previous_cancelled_output.xml
+```
 
 ---
 
