@@ -43,40 +43,40 @@ perl -lne 'print $1 if /<REGEX>/' < *
         sudo tail –f /var/log/mysql/mysql.log
         ```
 ### Alternatives / Bypass
-    ```sql
-    space is /**/
-    Comment is #
-    ```
+```sql
+space is /**/
+Comment is #
+```
 ### Basic MySQL Queries
 * Check current DB Version
-    ```sql
-    select version();
-    @@version;
-    ```
+```sql
+select version();
+@@version;
+```
 * Show current User
-    ```sql
-    select user();
-    # or
-    select current_user();
-    ```
+```sql
+select user();
+# or
+select current_user();
+```
 * Boolean Example
-    ```sql
-    SELECT count(*) FROM <table> where <column_name> LIKE <QUERY>
-    ```
+```sql
+SELECT count(*) FROM <table> where <column_name> LIKE <QUERY>
+```
 * Show if current user is a database admin (DBA)
-    ```sql
-    SELECT false OR (select count(user) from mysql.user where (INSTR((select user()), user)  and  super_priv = 'Y' and host = 'localhost')) = 1; # Boolean
-    SELECT user from mysql.user where (user = substring_index((select user()),'@',1) and super_priv = 'Y' and host = 'localhost'); # Better
-    SELECT false OR (select count(user) from mysql.user where (user = substring_index((select user()),'@',1) and super_priv = 'Y' and host = 'localhost'))=1; # Boolean
-    ```
+```sql
+SELECT false OR (select count(user) from mysql.user where (INSTR((select user()), user)  and  super_priv = 'Y' and host = 'localhost')) = 1; # Boolean
+SELECT user from mysql.user where (user = substring_index((select user()),'@',1) and super_priv = 'Y' and host = 'localhost'); # Better
+SELECT false OR (select count(user) from mysql.user where (user = substring_index((select user()),'@',1) and super_priv = 'Y' and host = 'localhost'))=1; # Boolean
+```
 * Add Values
-    ```sql
-    INSERT INTO users(user_id,login,password,email) VALUES( "4" , "user4"   , "password4" , "user4@test.local");
-    ```
+```sql
+INSERT INTO users(user_id,login,password,email) VALUES( "4" , "user4"   , "password4" , "user4@test.local");
+```
 * Update Values
-    ```sql
-    UPDATE users SET Status = 1 where login='user4';
-    ```
+```sql
+UPDATE users SET Status = 1 where login='user4';
+```
 
 ### Payloads
 * Union
