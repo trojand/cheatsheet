@@ -107,8 +107,10 @@ nikto -h $url -C all -oX
 
 * Directory: 
     ```bash
+    ffuf (commands)
     gobuster dir -w $dirlist -u http://$rhost -l -t 50 (l for size,t for threads)
     dirbuster -l /usr/share/wordlists/dirbuster/directory-list-1.0.txt =R  -s / -t 40 -r ./dirbuster-$host -u http://$host (Turn off "recursive"  adjust threads to 30-45)
+    cat ~/Results/naabu/naabu_all_ports_withoutIPs_https.txt | ~/Tools/feroxbuster --stdin --parallel 10 -e -A -w /usr/share/seclists/Discovery/Web-Content/raft-large-directories.txt -o ~/Results/feroxbuster/naabu_raft-large-directories.txt
     skipfish -YO http://$rhost:$rport -o skipfish_output
     wget -r http://$rhost:$rport -o wget_output
     # BurpSuite - Spider from Results of dirbuster
