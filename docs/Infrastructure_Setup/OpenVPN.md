@@ -13,7 +13,7 @@ sudo systemctl enable openvpn
 ## Saving OpenVPN Credentials
 * So you wont need to type it every time you connect
 * For Username password
-    * Within the 'openvpn.conf', add the path to you text file containing the openvpn credentials:
+    * Within the 'OS-90922.ovpn', add the path to you text file containing the openvpn credentials:
         ```
         auth-user-pass /home/kali/VPN/creds.conf
         ```
@@ -23,7 +23,7 @@ sudo systemctl enable openvpn
         kASme0eHLeI3
         ```
 * For private key
-    * Within the 'openvpn.conf', add the path to you text file containing the openvpn credentials:
+    * Within the 'OS-90922.ovpn', add the path to you text file containing the openvpn credentials:
         ```
         askpass /home/kali/VPN/private_key.conf
         ```
