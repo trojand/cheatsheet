@@ -15,7 +15,18 @@ comm <-123> file1 file2 2>/dev/null
 read -s -d ' '
 ```
 
-## Recursive sed
+## sed
+### Basic Sed Commands
+* Replace 'newlines' or `\n` with sed
+```bash
+cat targets.txt| sed -z "s/\n/\/\nhttps:\/\//g" > targets_https.txt
+cat naabu_output.txt| sed -z "s/\n/\/\nhttps:\/\//g" > naabu_all_ports_withoutIPs_https.txt
+```
+* Remove 1st and last character
+```bash
+cat lines.txt|sed "s/^.//;s/.$//"
+```
+### Recursive sed
 * In case you want to change values in a lot of text files
 * One of the many ways [^2]
 * Change the 4 values between `< >`
@@ -248,3 +259,4 @@ echo $SERVICE_PASSWORD
 [^9]: [Tecmint - How to Encrypt and Decrypt Files and Directories Using Tar and OpenSSL](https://www.tecmint.com/encrypt-decrypt-files-tar-openssl-linux/)
 [^10]: [StackOverflow - Securely passing password to openssl via stdin](https://stackoverflow.com/questions/6321353/securely-passing-password-to-openssl-via-stdin)
 [^11]: [AskUbuntu - Filenames with spaces breaking for loop, find command](https://askubuntu.com/a/343753)
+[^12]: [StackOverflow - Understanding a sed command: sed 's/\s\s*/ /g'](https://unix.stackexchange.com/questions/583882/understanding-a-sed-command-sed-s-s-s-g)
