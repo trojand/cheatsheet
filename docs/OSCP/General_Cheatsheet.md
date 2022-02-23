@@ -118,7 +118,7 @@ nikto -h $url -C all -oX
 
 * Directory: 
     ```bash
-    ffuf (commands)
+    ffuf -c -w /usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-big.txt -u https://gg.example.com/FUZZ -recursion -recursion-depth 3 -recursion-strategy greedy -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4674.0 Safari/537.36" -o output
     gobuster dir -w $dirlist -u http://$rhost -l -t 50 (l for size,t for threads)
     dirbuster -l /usr/share/wordlists/dirbuster/directory-list-1.0.txt =R  -s / -t 40 -r ./dirbuster-$host -u http://$host (Turn off "recursive"  adjust threads to 30-45)
     cat ~/Results/naabu/naabu_all_ports_withoutIPs_https.txt | ~/Tools/feroxbuster --stdin --parallel 10 -e -A -w /usr/share/seclists/Discovery/Web-Content/raft-large-directories.txt -o ~/Results/feroxbuster/naabu_raft-large-directories.txt
