@@ -6,16 +6,22 @@ Commonly used for initial network monitoring which later may provide understandi
 
 ```bash
 sudo systemctl stop NetworkManager.service
-sudo systemctl disable NetworkManager.serivce
+sudo systemctl disable NetworkManager.service
 
-sudo ifconfig eth0 down
-sudo ifconfig eth0 hw ether 00:00:00:00:00:01 promisc #Not sure setting the mac address helps
-sudo ifconfig eth0 -arp
-
+ifconfig eth1
 sudo route -nv
 sudo netstat -r
 
-sudo ip link set eth0 multicast off
-sudo ip link set eth0 promisc on
-sudo ip link set eth0 up
+sudo ifconfig eth1 down
+sudo ifconfig eth1 hw ether 00:00:00:00:00:01 promisc #Not sure setting the mac address helps
+sudo ifconfig eth1 -arp
+
+ifconfig eth1
+sudo route -nv
+sudo netstat -r
+
+sudo ip link set eth1 multicast off
+sudo ip link set eth1 promisc on
+sudo sh -c 'echo 1 > /proc/sys/net/ipv6/conf/eth1/disable_ipv6'
+sudo ip link set eth1 up
 ```
