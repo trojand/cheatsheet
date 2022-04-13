@@ -55,37 +55,32 @@ ___
 ## Bloodhound (Sharphound)[^2] 
 
 1. On local machine  (~Kali)
-
-
+    * Bloodhound Installation[^19]
+    * Running bloodhound ingestor from linux:
 ```batch
-git clone https://github.com/fox-it/BloodHound.py.git #Bloodhound.py does not have all the features compared to the original Sharphound ingestors
-cd BloodHound.py/ && pip install .
-bloodhound-python -d <domain> -u <username> -p <password> -gc <domain_controller> -c all
-
-sudo apt install neo4j bloodhound
-# Access neo4j and change the neo4j/neo4j default credentials.
-# While neo4j is still running, run bloodhound
-bloodhound
+cd /opt
+git clone https://github.com/fox-it/BloodHound.py
+cd BloodHound.py
+sudo docker run -v ${PWD}:/bloodhound-data -it bloodhound
+# bloodhound-python -d domain.local -u user01 -p P@ssw0rd -c all,loggedon --zip
 ```
 
 1. Sharphound Officialy supported ingestors [^3][^4]
     * Running the official/supported Sharphound Collectors collects more information [
         * although Bloodhound.py is quick and good for most cases
-        ```powershell
-        # On the victim host
-        Import-Module .\SharpHound.ps1
-        Invoke-BloodHound -CollectionMethod All -CompressData -RemoveCSV -NoSaveCache -RandomizeFilenames -EncryptZip
+    * Running on the victim host
+        ```batch
+        .\SharpHound.exe -c all --encryptzip --nosavecache --zipfilename bh.zip -d domain.local
         ```
     * Runas
         * If logged in on a local user account but have domain user credentials, then on the command-line
         * This works also to get SharpHound to work and ingest data even if your own Windows VM is not part of the Domain.
-            * This bypasses the need to run SharpHound ps1 on the host itself with AVs/ERDs
+            * This bypasses the need to run SharpHound on the host itself with AVs/ERDs
         ```powershell
         C:\> runas /netonly /user:<DOMAIN>\<username> "powershell.exe -exec bypass"
  
         # then on the spawned powershell
-        Import-Module .\SharpHound.ps1
-        Invoke-BloodHound -CollectionMethod All
+        .\SharpHound.exe -c all --nosavecache --zipfilename bh.zip -d domain.local
         ```
     * Run after sharphound for some nice statistics
         * [Bloodhound Quickwin](https://github.com/kaluche/bloodhound-quickwin)   
@@ -109,6 +104,7 @@ bloodhound
 ___
 ## General Attack methods
 * Methods [^5][^6]
+     * NTLM Relay[^18]
      * Golden Ticket
          * Requires full domain compromise.
          * Used for persistenceand pivoting
@@ -308,3 +304,5 @@ winrs -r:DC01.domain.com cmd
 [^15]: [Bloodhound - GenericAll](https://bloodhound.readthedocs.io/en/latest/data-analysis/edges.html#genericall)
 [^16]: [Github -  SecuraBV/CVE-2020-1472](https://github.com/SecuraBV/CVE-2020-1472)
 [^17]: [Github - dirkjanm/CVE-2020-1472](https://github.com/dirkjanm/CVE-2020-1472)
+[^18]: [TrustedSec - Comprehensive Guide on NTLM Relaying 2022](https://www.trustedsec.com/blog/a-comprehensive-guide-on-relaying-anno-2022/)
+[^19]: [Readthedocs - Bloodhound](https://bloodhound.readthedocs.io/en/latest/installation/linux.html)
