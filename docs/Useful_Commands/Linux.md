@@ -253,6 +253,30 @@ echo $SERVICE_PASSWORD
 ls -t
 ```
 
+## Sort contents of a file in reverse
+* Sort from the last letter to the first [^13]
+```
+rev file.txt | sort | rev
+```
+
+## Beep
+* Beep! [^14]
+* Useful when you want to get notified if a task has finished (i.e. nmap scan, hashcat cracking). 
+   * Productivity, no idle time/processing power
+* Make sure the Sound card is enabled on the VM settings
+* Basic Usage
+   ```
+   sudo apt install beep
+   sudo env -i beep
+   ```
+* Practical Usage
+   ```
+   echo 'alias beep="sudo env -i beep"' > ~/.zshrc
+   source ~/.zshrc
+   
+   sudo nmap -sn iL subnets.txt && beep
+   sudo hashcat -a 0 hash.list rockyou.txt && beep
+   ```
 
 
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
@@ -267,3 +291,5 @@ ls -t
 [^10]: [StackOverflow - Securely passing password to openssl via stdin](https://stackoverflow.com/questions/6321353/securely-passing-password-to-openssl-via-stdin)
 [^11]: [AskUbuntu - Filenames with spaces breaking for loop, find command](https://askubuntu.com/a/343753)
 [^12]: [StackOverflow - Understanding a sed command: sed 's/\s\s*/ /g'](https://unix.stackexchange.com/questions/583882/understanding-a-sed-command-sed-s-s-s-g)
+[^13]: [Stackoverflow - How to sort a list of words by the last character](https://stackoverflow.com/questions/69055654/how-to-sort-a-list-of-words-by-the-last-character-in-bash)
+[^14]: [Reddit - Beep could not open any device...](https://www.reddit.com/r/archlinux/comments/bep79a/beep_could_not_open_any_device_how_to_fix_it/)
