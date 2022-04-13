@@ -23,10 +23,22 @@ kr brute <hosts-file> -w wordlist.txt -e asp,aspx,cfm,xml -x20 -j250 -A=apiroute
 httpx -tech-detect -x all -status-code -title -ip -http2 -cdn  -l ~/Scope/subdomains.txt
 ```
 
+## Scanning
+### ProjectDiscovey - Nuclei [^4]
+```
+nuclei -stats -si 300 -silent -nts -nm  -headless -metrics -project -project-path $(pwd) -me $(pwd) -o main_output.txt -me $(pwd) -se output.sarif -l ~/Scope/naabu_output_urlised_including_subdir.txt
+```
+If really keen on monitoring nuclei's progress or just a stats nerd; on another terminal:
+```
+while true; do curl -s localhost:9092/metrics | jq . && sleep 60 && clear;done
+```
+
 
 ## Wordlists
 * [Assetnote](https://wordlists.assetnote.io/)
+* 
 
 [^1]: [Assetnote - Kiterunner](https://blog.assetnote.io/2021/04/05/contextual-content-discovery/)
 [^2]: [Github - KathanP19](https://github.com/KathanP19/JSFScan.sh)
 [^3]: [Burp Suite - Param Miner](https://github.com/PortSwigger/param-miner)
+[^4]: [Github - ProjectDiscovery - Nuclei](https://github.com/projectdiscovery/nuclei)
