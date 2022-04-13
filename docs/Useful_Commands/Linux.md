@@ -248,6 +248,13 @@ echo $SERVICE_PASSWORD
             find ../Thunderbird_Export/ -type f -name '*.*' -print0 | while IFS= read -r -d '' file; do mv "$file" .;done
             ```
 
+## List files and sort via date time
+```
+ls -t
+```
+
+
+
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
 [^2]: [StackOverflow](https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed)
 [^3]: [It's FOSS](https://itsfoss.com/recover-deleted-files-linux/)
