@@ -24,6 +24,13 @@ python3 autorecon.py $rhost
 ```
 ### More NMAP
 * NOTE: Just use [naabu](https://github.com/projectdiscovery/naabu) from Project Discovery for basic TCP port scanning
+```
+sudo ~/go/bin/naabu -stats -verify -l hosts.txt -output output.txt
+```
+* Another alternative (Massscan)
+```
+sudo masscan -p 0-65535 --open -iL hosts.txt -oG output.txt|tee -a output_backup.txt
+```
 * Speeding up NMAP (arguments)
 ```
 -T4 --max-rtt-timeout 200ms --max-retries 1 --max-scan-delay 10ms --min-hostgroup 64 --version-intensity 1
