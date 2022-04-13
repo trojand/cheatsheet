@@ -141,7 +141,7 @@ ___
             ```
 
 
-[Password Cracking](../../Password_Cracking/Hashcat_general_cheatsheet.html)
+[Password Cracking](../Password_Cracking/Hashcat_general_cheatsheet.html)
     * Refer to [m0chan's blog](https://m0chan.github.io/2019/07/31/How-To-Attack-Kerberos-101.html)
     ```batch
     hashcat64.exe -a 3 -m 13100 SPN.hash /wordlists/rockyou.txt
