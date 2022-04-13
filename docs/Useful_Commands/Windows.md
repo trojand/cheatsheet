@@ -181,8 +181,27 @@ $ENCODED = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($MYCOMMAN
 Write-Output $ENCODED
 ```
 
+### List directory and sort by Date Time
+* Useful when trying to delete any files written to disk (i.e. procdump64.exe/lsassy.exe) and need to sort out through bunch of files (i.e. C:\Windows\temp)
+* Command Prompt
+    ```
+    dir /od
+    ```
+* Powershell (sorted by date(LastWriteTime). For sorting via other datetime fields, just press “TAB”)
+    ```
+    Get-ChildItem .\|Sort-Object LastWriteTime
+    ```
+
+### Taskkill
+* Killing tasks after `tasklist /V` [^5]
+* Useful when killing command and process which did not working and pressing ++ctrl+c++ exited the whole terminal
+```
+taskkill /PID 1234
+taskkill /F /IM cmd.exe
+```
 
 [^1]: [Windows Commandline - List local drives from command line](https://www.windows-commandline.com/list-local-drives-command-line/)
 [^2]: [Abatchy](https://www.abatchy.com/2017/03/powershell-download-file-one-liners)
 [^3]: [Tech Expert](https://techexpert.tips/powershell/powershell-base64-encoding/)
 [^4]: [TrustedSec - BITS for Script Kiddies](https://www.trustedsec.com/blog/bits-for-script-kiddies/)
+[^5]: [Windows Commandline - taskkill](https://www.windows-commandline.com/taskkill-kill-process/)
