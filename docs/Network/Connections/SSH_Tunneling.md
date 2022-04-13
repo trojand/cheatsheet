@@ -17,6 +17,7 @@ sudo systemctl restart ssh
 * Command:
 ```bash
 ssh -R sshGatewayIp:sshGatewayPort:localIp:localPort user@sshGateway
+ssh -R 127.0.0.1:2222:127.0.0.1:22 ubuntu@11.22.33.44
 ```
 
 ## Dynamic port forwarding with proxychains
