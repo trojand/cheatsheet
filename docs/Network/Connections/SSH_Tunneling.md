@@ -124,7 +124,7 @@ nc -lnvp 3333
             ```
     * TIP
         * If the chisel server is on a cloud C2, and you want to connect from your kali(separate machine)
-            * Perform step 3 on your Kali instead, no need to do it on the chisel server
+            * Perform step **c.** on your Kali instead, no need to do it on the chisel server(c2)
                 * Just change `ssh -NfD 1080 127.0.0.1` to `ssh -NfD 1080 ubuntu@c2domain.com`
 
 
