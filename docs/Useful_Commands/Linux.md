@@ -277,7 +277,17 @@ rev file.txt | sort | rev
    sudo nmap -sn iL subnets.txt && beep
    sudo hashcat -a 0 hash.list rockyou.txt && beep
    ```
-
+## grep for file extensions
+* This is when scouring a list not your own filesystem
+* I use this when looking for spidered shares
+    * If you search for `.pub` for example, you may end up seeing `....Web.Publishing/notcool.js`
+    * Which is why we search for a file extension beside `\n` [^15]
+```
+sudo apt install -y pcregrep
+cat spidered_shares.txt|pcregrep -M "\.pub.\n"
+cat spidered_shares.txt|pcregrep -M "\.key.\n"
+cat spidered_shares.txt|pcregrep -M "\.ppk.\n"
+```
 
 [^1]: [Stack Overflow](https://stackoverflow.com/questions/3724786/how-to-diff-two-file-lists-and-ignoring-place-in-list)
 [^2]: [StackOverflow](https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed)
@@ -293,3 +303,4 @@ rev file.txt | sort | rev
 [^12]: [StackOverflow - Understanding a sed command: sed 's/\s\s*/ /g'](https://unix.stackexchange.com/questions/583882/understanding-a-sed-command-sed-s-s-s-g)
 [^13]: [Stackoverflow - How to sort a list of words by the last character](https://stackoverflow.com/questions/69055654/how-to-sort-a-list-of-words-by-the-last-character-in-bash)
 [^14]: [Reddit - Beep could not open any device...](https://www.reddit.com/r/archlinux/comments/bep79a/beep_could_not_open_any_device_how_to_fix_it/)
+[^15]: [StackOverflow- How to give a pattern for new line in grep?](https://stackoverflow.com/questions/12652568/how-to-give-a-pattern-for-new-line-in-grep)
