@@ -26,7 +26,7 @@
     ```
     * Run alias with `go_simplehttpserver`
 * Upload a file via curl
-    * Windows - via powershell
+    * Windows - via [powershell](../Useful_Commands/Windows.html#download-uploading-files)
     * Linux - via [curl](../Useful_Commands/Linux.html#upload-files-via-curl)
 
 
