@@ -7,7 +7,7 @@
     simplehttpserver -https -upload
     simplehttpserver -https -upload -listen 0.0.0.0:443
     ```
-* Upload a file via [curl](../Useful_Commands/Linux.html#upload-files-via-curl)(Linux) or [powershell](../Useful_Commands/Windows.html#download-uploading-files)(Windows). Try to [compress](../Network/Data_Exfiltration/Windows-Archiving_and_Compression.md#powershell) first
+* Upload a file via [curl](../../Useful_Commands/Linux.html#upload-files-via-curl)(Linux) or [powershell](../../Useful_Commands/Windows.html#download-uploading-files)(Windows). Try to [compress](../../Network/Data_Exfiltration/Windows-Archiving_and_Compression.md#powershell) first
     * Windows
        * Powershell (Possible to convert to one-liner and execute via *cmd*>`powershell "<b;e;l;o;w;>"`)
           ```powershell
