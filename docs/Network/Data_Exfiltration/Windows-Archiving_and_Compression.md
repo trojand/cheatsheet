@@ -5,6 +5,7 @@
 Compress-Archive -LiteralPath C:\Windows\temp\lsass.dmp -DestinationPath C:\Windows\temp\lsass.zip
 ls C:\Windows\temp\lsass.zip
 ```
+* Unzipping in Linux with `unzip lsass.zip` does not always work, try `7z x lsass.zip`
 
 ---
 
