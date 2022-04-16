@@ -191,6 +191,16 @@ Write-Output $ENCODED
     ```
     Get-ChildItem .\|Sort-Object LastWriteTime
     ```
+### Tasklist
+* Find PID of a process
+* CMD
+    ```batch
+    tasklist /fi "imagename eq lsass.exe"
+    ```
+* Powershell
+    ```powershell
+    Get-Process lsass
+    ```
 
 ### Taskkill
 * Killing tasks after `tasklist /V` [^5]
