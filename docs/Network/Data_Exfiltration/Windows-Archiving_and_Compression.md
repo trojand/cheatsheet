@@ -1,7 +1,15 @@
 # Archiving and compression of files in Windows before extracting
 
+## Powershell
+```powershell
+Compress-Archive -LiteralPath C:\Windows\temp\lsass.dmp -DestinationPath C:\Windows\temp\lsass.zip
+ls C:\Windows\temp\lsass.zip
+```
 
-## Instructions
+---
+
+## 7zip
+### Instructions
 
 1. Download **7za.exe** from [7zip](https://www.7-zip.org/download.html)
     * Download the standable version. Usually contains the description: "*7-Zip Extra: standalone console version, 7z DLL, Plugin for Far Manager*"
@@ -13,7 +21,7 @@
 
 
 -----------------------------------
-## Tips
+### Tips
 * Check disk space/partition before archiving a large file or folder
     ```batch
     echo list volume|diskpart
