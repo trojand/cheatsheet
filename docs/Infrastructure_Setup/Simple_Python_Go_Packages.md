@@ -15,21 +15,14 @@
     sudo apt install golang-go -y
     GO111MODULE=on go get -v github.com/projectdiscovery/simplehttpserver/cmd/simplehttpserver
     ```
-* Simple command for running
-    ```bash
-    simplehttpserver -https -upload
-    simplehttpserver -https -upload -listen 0.0.0.0:8000
-    ```
 * Add basic secure alias to your .zshrc/.bashrc
     ```
     alias go_simplehttpserver='simplehttpserver -upload -https -basic-auth root:toor'
     ```
     * Run alias with `go_simplehttpserver`
-* Upload a file via curl
-    * Windows - via [powershell](../Useful_Commands/Windows.html#download-uploading-files)
-    * Linux - via [curl](../Useful_Commands/Linux.html#upload-files-via-curl)
+* [Uploading files with ProjectDiscovery SimpleHTTPServer](../Network/Data_Exfiltration/Windows-Linux-Curl-SimpleHTTPServerwithUpload.html#projectdiscovery-simplehttpserver)
 
-
+---
 
 ### Python
 
