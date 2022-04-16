@@ -172,6 +172,8 @@ bitsadmin /create JOB & bitsadmin /addfile JOB %TEMP%\test1.txt %TEMP%\test2.txt
 Expand-Archive Procdump.zip -DestinationPath "C:\temp\" -Force -Verbose
 ```
 
+### (Compress and Archive](../Network/Data_Exfiltration/Windows-Archiving_and_Compression.html#powershell)
+
 ### Base64 Encode Powershell commands
 * Some use cases:
     * Encoding[^2] [Powershell one-liners](../Windows/Shells.html#one-liners)
