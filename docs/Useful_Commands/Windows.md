@@ -172,7 +172,13 @@ bitsadmin /create JOB & bitsadmin /addfile JOB %TEMP%\test1.txt %TEMP%\test2.txt
 Expand-Archive Procdump.zip -DestinationPath "C:\temp\" -Force -Verbose
 ```
 
-### (Compress and Archive](../Network/Data_Exfiltration/Windows-Archiving_and_Compression.html#powershell)
+### Compress and Archive
+* [Powershell 5.0 and greater](../Network/Data_Exfiltration/Windows-Archiving_and_Compression.html#powershell)
+* Powershell 3.0 [^6]
+    ```powershell
+    Add-Type -A 'System.IO.Compression.FileSystem'
+    [IO.Compression.ZipFile]::CreateFromDirectory("C:\Windows\Temp\folderContainingLsassDMP", 'C:\Windows\temp\lsass.zip')
+    ```
 
 ### Base64 Encode Powershell commands
 * Some use cases:
@@ -217,3 +223,4 @@ taskkill /F /IM cmd.exe
 [^3]: [Tech Expert](https://techexpert.tips/powershell/powershell-base64-encoding/)
 [^4]: [TrustedSec - BITS for Script Kiddies](https://www.trustedsec.com/blog/bits-for-script-kiddies/)
 [^5]: [Windows Commandline - taskkill](https://www.windows-commandline.com/taskkill-kill-process/)
+[^6]: [Shellhacks - Windows: Zip | Unzip – Command Line](https://www.shellhacks.com/windows-zip-unzip-command-line/)
