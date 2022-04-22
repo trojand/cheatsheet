@@ -96,6 +96,11 @@ sudo docker run -v ${PWD}:/bloodhound-data -it bloodhound
             ```
             python3 max.py -u neo4j -p neo4j mark-owned -f ~/Results/Dump/owned_users.txt --add-note "from secretsdump and weak passwords"
             ```
+    * Bloodhound Custom Queries
+        * Try to make use of custom queries such as from these curious people
+            * [Compass Security](https://github.com/CompassSecurity/BloodHoundQueries/blob/master/customqueries.json)
+            * [Hausec](https://github.com/hausec/Bloodhound-Custom-Queries/blob/master/customqueries.json)
+            * 
     * Bloodhound attacks
         * GenericAll [^15]
             * Although the commands in the reference work, I found that it was easier to modify permissions and other actions (reset user password) using RSAT.
