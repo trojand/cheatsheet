@@ -5,7 +5,9 @@
 ## Good blogs for these:
 * [BHIS - Finding Buried Treasure SMB](https://www.blackhillsinfosec.com/finding-buried-treasure-in-server-message-block-smb/)
 
-___
+Also keep these vulnerabilities that [Microsoft Won't Fix](https://github.com/cfalta/MicrosoftWontFixList) in mind when performing domain enumeration.
+
+---
 
 ## Just basic stuff
 
@@ -31,7 +33,7 @@ net group "<group>" /domain
 net group "domain admins" /domain
 klist
 ```
-___
+---
 ## NLTest[^1]
        
 ```batch
@@ -39,7 +41,7 @@ nltest /dclist:<domain>
 nltest /dsgetdc:<domain>
 nltest /domain_trusts /all_trusts
 ```
-___
+---
 ## Powershell Enumeration[^1]
 
 ```powershell        
@@ -48,10 +50,16 @@ ___
 [System.DirectoryServices.ActiveDirectory.Forest]::GetCurrentForest()
 ([System.DirectoryServices.ActiveDirectory.Forest]::GetForest((New-Object System.DirectoryServices.ActiveDirectory.DirectoryContext('Forest', '<domain>')))).GetAllTrustRelationships()
 ```
-___ 
+
+## Tools for automating enumeration
+* [Seatbelt](https://github.com/GhostPack/Seatbelt)
+* Bloodhound (Below)
+* Local Privilege Escalation
+    * [WinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS)
+---
 
 ## [Dumping credentials](./Post_Exploitation.html#dumping-credentials1)
-___
+---
 ## Bloodhound (Sharphound)[^2] 
 
 1. On local machine  (~Kali)
@@ -134,7 +142,7 @@ sudo responder -I eth1 -Pvd
      * Over-Pass-the-Hash
          * Requires access as user.
          * Use to pivot
-___
+---
 
 ## Kerberoasting
 1. From Linux [^1][^7]
@@ -161,7 +169,7 @@ ___
     hashcat64.exe -a 3 -m 13100 SPN.hash /wordlists/rockyou.txt
     ```
 
-___
+---
 
 ## Gathering Windows GPP passwords[^8]
 
@@ -174,7 +182,7 @@ ___
     gpp-decrypt <cpassword_value>
     ```
 
-___
+---
 
 ## ADFind[^9]
 ```batch
