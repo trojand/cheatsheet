@@ -72,9 +72,11 @@ sshuttle -v -r user@sshGateway network/netmask -e 'ssh -i /path/to/private_key'
 
 * Remote/Reverse Forwarding (for *reverse connections* [i.e. reverse_tcp])
     * Quick Diagrams for the visual people
-        * [INTERNET_ISOLATED_MACHINE] --> [Pivot_Machine] --(FIREWALL)--(INTERNET)-- [C2/Kali]
-        * making it seamless as if:
-        * [INTERNET_ISOLATED_MACHINE] =============================================> [C2/Kali]
+
+[INTERNET_ISOLATED_MACHINE] --> [Pivot_Machine] --(FIREWALL)--(INTERNET)-- [C2/Kali]
+---making it seamless as if:---
+[INTERNET_ISOLATED_MACHINE] =============================================> [C2/Kali]
+
     * From Kali: `./chisel server -v -p 8000 --reverse` From C2: `./chisel server -v -p 443 --reverse` 
     * Commonly on the 1st compromised machine [Pivot Machine]
         * Let us call this [Pivot Machine]: *PHISHEDVICTIM01.acme.local*
