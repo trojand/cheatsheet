@@ -1,5 +1,8 @@
 # JQ tips
 
+## Disclaimer
+There is no need for this nonsense. Refer to this awesome person: [Lzone jq cheatsheet](https://lzone.de/cheat-sheet/jq)
+
 ## Installation
 `sudo apt install jq`
 
