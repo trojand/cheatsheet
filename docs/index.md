@@ -97,6 +97,7 @@
 * [Python Tips](Useful_Commands/Python_Tips.md)
 * [Go](Useful_Commands/golang.md)
 * [JQ Tips](Useful_Commands/jq.md)
+* [WinDbg](Useful_Commands/WinDbg.md)
 
 ## Methodologies
 * [Pentesting Sharepoint](Methodologies/Sharepoint.md)
