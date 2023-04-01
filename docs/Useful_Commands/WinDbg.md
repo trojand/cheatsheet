@@ -8,5 +8,7 @@
     * `u <address>`
     * `u <symbol>`
 
-`.reload /f` : reload modules 
-`.cls` : clear screen
+
+
+* `.reload /f` : reload modules 
+* `.cls` : clear screen
