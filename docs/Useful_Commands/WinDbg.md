@@ -1,7 +1,11 @@
 # WinDbg
 
-## Basic commands/shortcuts
+## Shortcut Keys
 * ++f6++ : Attach a process
+* ++Ctrl+Break++` : Break (Force breakpoint)
+
+
+## Basic commands/shortcuts
 * `g`  : Go/Continue from breakpoint
 * `u` : Unassemble (View/Display the assembly translation from memory)
     * `u` : Display from EIP
@@ -44,7 +48,9 @@
     * `be 0`
     * `bc <#>` : Clear breakpoint number
     * `bc *` : Clear all breakpoints
+    * `bu <module>` : Breakpoint at an unresolved endpoint(module that is not yet loaded)
 
+* `lm m <module>` : Browse Modules
 
 
 
