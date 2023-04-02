@@ -20,6 +20,33 @@
     * Notes:
         * `poi(X)` : Pointer to Data
         * `L<X>` : Display Length depends on the value of X in `d<X>`
+* `dt <structure>`: Display Type (Display Structure)
+    * `dt ntdll!_TEB`
+    * `dt <structure> @$teb` : To get address if field is a Ptr(Pointer)
+    * `dt <structure> <@$teb> <field>` : For specific field only
+    * Notes:
+        * `?? sizeof(<structure>)` : To get size of structure
+* `e<X> <address/register>` : Edit memory
+    * `ed esp 50505050`
+    * `ea esp "hello"`
+* `s -<X> 0 L?80000000 <bytes/keyword>` : Search in memory. "0 L?80000000" means whole memory space
+    * `s -d L?80000000 50505050`
+    * `s -a L?80000000 "trojand"`
+* `r` : Inspect Registers
+    * `r esp`
+    * `r esp=50505050` : Editing Registers
+* `b<X> <args>` : Breakpoint
+    * `bp <symbol/address>` : Insert breakpoint
+    * `bp kernel32!ReadFile`
+    * `bl` : List breakpoints
+    * `bd <#>` : Disable breakpoint <number>
+    * `be <#>` : Enable breakpoint <number>
+    * `be 0`
+    * `bc <#>` : Clear breakpoint number
+    * `bc *` : Clear all breakpoints
+
+
+
 
 
 * `.reload /f` : reload modules 
