@@ -4,7 +4,7 @@
 
 ## Shortcut Keys
 * ++f6++ : Attach a process
-* ++Ctrl+Break++ : Break (Force breakpoint)
+* ++ctrl+break++ : Break (Force breakpoint)
 
 
 ## Basic commands/shortcuts
